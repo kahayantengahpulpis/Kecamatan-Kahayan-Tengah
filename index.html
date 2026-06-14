@@ -765,6 +765,32 @@
             color: var(--primary-forest);
         }
 
+        /* Styled Accuweather Button link */
+        .btn-weather-external {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: var(--accent-gold);
+            color: #ffffff;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(217, 119, 6, 0.2);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-weather-external:hover {
+            background: var(--primary-forest);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(13, 59, 48, 0.2);
+            transform: translateY(-2px);
+        }
+
         /* ==========================================================================
            6. INTERACTIVE GIS & 14 VILLAGES EXPLORER (Highlight Feature)
            ========================================================================== */
@@ -1316,7 +1342,7 @@
         .cult-feat-item h4 {
             color: #ffffff;
             font-size: 16px;
-            margin-bottom: 3px;
+            margin-bottom: 30px;
         }
 
         .cult-feat-item p {
@@ -1689,7 +1715,7 @@
         <div class="container navbar-container">
             <div class="brand-lockup">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Lambang_Kabupaten_Pulang_Pisau.webp" alt="Logo Pulang Pisau" class="logo-pemkab">
-                <div class="brand-text">
+                <div class="brand-texts">
                     <span class="gov-sub-title">PEMERINTAH KABUPATEN PULANG PISAU</span>
                     <span class="gov-main-title">Kecamatan Kahayan Tengah</span>
                 </div>
@@ -1698,7 +1724,7 @@
 
             <div class="nav-links-wrap">
                 <ul class="nav-menu" id="navMenu">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">Profil <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
                         <div class="dropdown-menu">
@@ -1777,7 +1803,7 @@
         <div class="container">
             <div class="executive-grid">
                 <div class="camat-frame-decor">
-                    <img src="https://lh3.googleusercontent.com/u/0/d/1tY_8RWjeDTbxeZL_6bfquN_zNW5eH7hM" alt="Camat Kahayan Tengah" class="camat-photo">
+                    <img src="https://lh3.googleusercontent.com/d/1Gmf17RxRuODSN64AwNjs0_udYTaLwZEV" alt="Camat Kahayan Tengah" class="camat-photo">
                 </div>
                 <div class="executive-text">
                     <h4>SAMBUTAN KEPALA WILAYAH</h4>
@@ -1864,6 +1890,13 @@
                                 <span>Indeks UV</span>
                                 <span class="val">Sangat Rendah</span>
                             </div>
+                            <!-- Integrated AccuWeather Realtime Link -->
+                            <a href="https://www.accuweather.com/id/id/bukit-rawi/3474430/current-weather/3474430" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="btn-weather-external">
+                                <i class="fa-solid fa-square-arrow-up-right"></i> AccuWeather® Live
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -2084,7 +2117,7 @@
             <div class="cultural-grid">
                 
                 <div class="cultural-text">
-                    <h5>POTENSI UMGGULAN KECAMATAN</h5>
+                    <h5>POTENSI UNGGULAN KECAMATAN</h5>
                     <h2>Kerajinan Anyaman Rotan Leluhur Dayak</h2>
                     <p>Rotan hutan berkualitas premium diolah secara manual oleh kelompok pengrajin terampil lokal di Kahayan Tengah untuk menghasilkan produk interior berkelas internasional.</p>
                     <ul class="cultural-features-list">
