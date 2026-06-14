@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Resmi Kecamatan Kahayan Tengah - Kabupaten Pulang Pisau</title>
+    <title>Sejarah & Wilayah - Kecamatan Kahayan Tengah</title>
     
     <!-- Premium Font Integration -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,36 +15,54 @@
     
     <style>
         /* ==========================================================================
-           Kombinasi Desain CSS Kamu (Biru Royal Modern)
+           1. ROOT VARIABLES & GLOBAL STYLES (Classic Blue & Gold Accent Palette)
            ========================================================================== */
-        
-        /* --- DASAR & RESET --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, sans-serif; 
-            background-color: #f8f9fa; 
-            color: #333; 
+        :root {
+            --primary-blue: #1e3a8a;      /* Deep Navy Blue */
+            --primary-blue-light: #2563eb; /* Royal Blue */
+            --accent-gold: #d97706;       /* Emas Rotan */
+            --accent-gold-light: #f59e0b;
+            --bg-sand: #f8fafc;           /* Cool White/Slate */
+            --bg-sand-dark: #f1f5f9;
+            --text-dark: #0f172a;         /* Slate 900 */
+            --text-muted: #475569;        /* Slate 600 */
+            --card-border: rgba(30, 58, 138, 0.08);
+            --shadow-premium: 0 20px 40px -15px rgba(30, 58, 138, 0.08);
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-sand);
+            color: var(--text-dark);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             line-height: 1.6;
         }
-        
+
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Merriweather', serif;
-            color: #2c529d;
+            color: var(--primary-blue);
             font-weight: 700;
         }
 
-        .container { 
-            width: 95%; 
-            max-width: 1200px; 
-            margin: auto; 
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
         a {
             text-decoration: none;
             color: inherit;
-            transition: all 0.3s ease;
+            transition: var(--transition-smooth);
         }
 
         /* Custom Scrollbar */
@@ -52,27 +70,29 @@
             width: 10px;
         }
         ::-webkit-scrollbar-track {
-            background: #f1f5f9;
+            background: var(--bg-sand-dark);
         }
         ::-webkit-scrollbar-thumb {
-            background: #2c529d;
+            background: var(--primary-blue);
             border-radius: 5px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #1e3a8a;
+            background: var(--accent-gold);
         }
 
-        /* --- 1. TOP BAR --- */
-        .top-bar {
-            background-color: #2c529d; 
-            color: white;
+        /* ==========================================================================
+           2. HEADER & OFFICIAL NAVIGATION (Executive Sticky Navbar)
+           ========================================================================== */
+        .top-info-bar {
+            background: var(--primary-blue);
+            color: #ffffff;
+            font-size: 13px;
             padding: 8px 0;
-            font-size: 12px;
-            border-bottom: 2px solid #1e3a8a;
+            border-bottom: 2px solid var(--accent-gold);
             position: relative;
             z-index: 100;
         }
-        
+
         .top-bar-content {
             display: flex;
             justify-content: space-between;
@@ -88,8 +108,8 @@
         }
 
         .ticker-badge {
-            background: #e0f2fe;
-            color: #2c529d;
+            background: var(--accent-gold);
+            color: #ffffff;
             padding: 2px 10px;
             font-weight: 700;
             border-radius: 4px;
@@ -121,1226 +141,459 @@
         }
 
         .top-bar-contacts a:hover {
-            color: #cbd5e1;
+            color: var(--accent-gold-light);
         }
 
-        /* --- 2. NAVBAR (Latar Putih, Teks Hitam) --- */
-        .navbar-official {
-            background-color: #ffffff !important; 
-            padding: 10px 0;
+        /* Navbar */
+        .navbar-premium {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+            padding: 15px 0;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border-bottom: 1px solid #eeeeee;
-            transition: all 0.3s ease;
-        }
-        
-        .navbar-official.scrolled {
-            padding: 5px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            z-index: 99;
+            transition: var(--transition-smooth);
         }
 
-        .navbar-content { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            flex-wrap: wrap; 
+        .navbar-premium.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.05);
         }
-        
-        .brand-section { 
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        
-        .brand-logo { 
-            height: 50px; 
-            width: auto; 
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
+
+        .brand-lockup {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
-        
-        .brand-text { 
-            display: flex; 
-            flex-direction: column; 
-            color: #333333; 
+
+        .logo-pemkab {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
         }
-        
-        .sub-brand { 
-            font-size: 10px; 
-            font-weight: 700; 
-            opacity: 0.8; 
-            letter-spacing: 1px;
-            color: #2c529d;
+
+        .brand-texts {
+            display: flex;
+            flex-direction: column;
         }
-        
-        .main-brand { 
+
+        .gov-sub-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .gov-main-title {
             font-family: 'Merriweather', serif;
-            font-size: 18px; 
-            font-weight: 800; 
-            line-height: 1.2; 
-            color: #333333;
-        }
-        
-        .asn-logo-img { 
-            height: 35px; 
-            width: auto; 
-            margin-left: 15px; 
-            border-left: 1px solid #dddddd;
-            padding-left: 15px;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            line-height: 1.2;
         }
 
-        /* Menu Navigasi Sejajar Kesamping */
+        .asn-logo-premium {
+            height: 38px;
+            width: auto;
+            margin-left: 20px;
+            border-left: 1px solid rgba(30, 58, 138, 0.15);
+            padding-left: 20px;
+        }
+
+        /* Navigation Menu */
         .nav-links-wrap {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 30px;
         }
 
-        .nav-menu { 
-            list-style: none; 
-            display: flex; 
-            gap: 10px; 
-            align-items: center; 
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            align-items: center;
         }
-        
-        .nav-menu li { 
-            position: relative; 
-        } /* Mengunci posisi dropdown agar tidak lari */
-        
-        .nav-menu a { 
-            color: #444444 !important; 
-            text-decoration: none; 
-            font-size: 13px; 
-            font-weight: 600; 
-            padding: 8px 12px; 
-            transition: 0.3s;
+
+        .nav-item {
+            position: relative;
         }
-        
-        .nav-menu a:hover, .nav-menu li.active > a { 
-            color: #2c529d !important;
-            background-color: #f0f4ff; 
+
+        .nav-link {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            padding: 8px 12px;
             border-radius: 4px;
         }
 
-        /* --- FITUR DROPDOWN MENU NAVIGASI --- */
-        .dropdown-content {
-            display: none;
+        .nav-link:hover, .nav-item.active .nav-link {
+            color: var(--primary-blue-light);
+            background-color: var(--bg-sand-dark);
+        }
+
+        /* Dropdown Style */
+        .dropdown-menu {
             position: absolute;
-            background-color: #ffffff;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
-            z-index: 1000;
-            list-style: none; /* Menghilangkan titik bulat hitam */
-            padding: 5px 0;
-            margin: 0;
-            border-radius: 6px;
-            border: 1px solid #eeeeee;
             top: 100%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) translateY(15px);
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 15px 35px rgba(30, 58, 138, 0.08);
+            padding: 10px 0;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
         }
-        
-        .dropdown-content li { display: block; width: 100%; }
-        
-        .dropdown-content li a {
-            color: #444444 !important;
-            padding: 10px 15px;
-            text-decoration: none;
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-item {
             display: block;
+            padding: 10px 20px;
             font-size: 13px;
-            font-weight: 500;
-            text-align: left;
-            transition: 0.2s;
-            background: transparent;
-        }
-        
-        .dropdown-content li a:hover {
-            background-color: #f0f4ff !important;
-            color: #2c529d !important;
-            padding-left: 18px;
-        }
-        
-        /* Memunculkan sub-menu saat menu utama disentuh kursor */
-        .dropdown:hover .dropdown-content {
-            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: var(--transition-smooth);
         }
 
-        .btn-portal-search {
-            background: #2c529d;
-            color: #ffffff;
-            border: none;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-portal-search:hover {
-            background: #1e3a8a;
-            transform: scale(1.05);
+        .dropdown-item:hover {
+            background-color: var(--bg-sand);
+            color: var(--primary-blue-light);
+            padding-left: 25px;
         }
 
         .mobile-toggle {
             display: none;
             font-size: 24px;
-            color: #2c529d;
+            color: var(--primary-blue);
             cursor: pointer;
         }
 
-        /* --- 3. BANNER UTAMA (Hero Parallax) --- */
-        .hero-slider { 
-            position: relative; 
-            width: 100%; 
-            height: 480px; 
-            overflow: hidden; 
-            background: linear-gradient(135deg, rgba(44, 82, 157, 0.9) 0%, rgba(30, 58, 138, 0.6) 100%), 
+        /* ==========================================================================
+           3. BREADCRUMB & HERO HEADER
+           ========================================================================== */
+        .page-header-banner {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(30, 58, 138, 0.75) 100%), 
                         url('https://lh3.googleusercontent.com/d/1zwbqd59Xk_MWu6kuoN0VJJfOGQiroGqi') no-repeat center center;
             background-size: cover;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 60px 0;
+            color: #ffffff;
+            border-bottom: 4px solid var(--accent-gold);
             text-align: center;
-            border-bottom: 5px solid #2c529d;
         }
 
-        .hero-inner-content {
-            z-index: 5;
-            max-width: 900px;
-            padding: 0 20px;
-        }
-
-        .hero-tagline {
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        .page-header-banner h1 {
             color: #ffffff;
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            display: inline-block;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            backdrop-filter: blur(4px);
-        }
-
-        .hero-inner-content h1 {
-            color: #ffffff;
-            font-size: 38px;
-            font-weight: 800;
+            font-size: 34px;
+            margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            line-height: 1.3;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        .hero-inner-content p {
-            color: #f1f5f9;
-            font-size: 16px;
-            max-width: 750px;
-            margin: 0 auto 30px;
-            font-weight: 500;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-
-        .hero-cta-group {
+        .breadcrumb-trail {
             display: flex;
             justify-content: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .breadcrumb-trail a {
+            color: var(--accent-gold-light);
+        }
+
+        .breadcrumb-trail a:hover {
+            color: #ffffff;
+        }
+
+        /* ==========================================================================
+           4. TWO-COLUMN SYSTEM & WRITING SECTIONS
+           ========================================================================== */
+        .sejarah-wilayah-section {
+            padding: 60px 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 40px;
+        }
+
+        /* Left Side Content Blocks */
+        .main-article {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.02);
+        }
+
+        .article-block {
+            margin-bottom: 40px;
+        }
+
+        .article-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-tag {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .article-block h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--bg-sand-dark);
+            padding-bottom: 10px;
+        }
+
+        .article-block p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Interactive Filter Input */
+        .filter-container {
+            background: var(--bg-sand-dark);
+            border: 1px solid var(--card-border);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .filter-container i {
+            color: var(--primary-blue);
+            font-size: 18px;
+        }
+
+        .filter-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-family: inherit;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        /* Styled list for villages */
+        .village-grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .village-info-card {
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 15px;
+            transition: var(--transition-smooth);
+            position: relative;
+            padding-left: 45px;
+        }
+
+        .village-info-card::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            color: var(--accent-gold);
+            font-size: 18px;
+        }
+
+        .village-info-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-blue-light);
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.05);
+        }
+
+        .village-info-card h4 {
+            font-size: 15px;
+            color: var(--primary-blue);
+            margin-bottom: 4px;
+        }
+
+        .village-info-card p {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin: 0;
+            text-align: left;
+        }
+
+        /* Boundary Box (Batas Wilayah) */
+        .boundary-table-box {
+            background: var(--bg-sand-dark);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid var(--card-border);
+            margin: 25px 0;
+        }
+
+        .boundary-grid-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 15px;
         }
 
-        .btn-premium {
-            padding: 12px 24px;
+        .boundary-card {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-blue);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .boundary-card h4 {
+            font-size: 13px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 4px;
+        }
+
+        .boundary-card p {
             font-size: 14px;
-            font-weight: 700;
-            border-radius: 30px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            margin: 0;
+            color: var(--text-dark);
+            font-weight: 600;
         }
 
-        .btn-premium.primary {
-            background: #ffffff;
-            color: #2c529d;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-        }
-
-        .btn-premium.primary:hover {
-            background: #f0f4ff;
-            transform: translateY(-2px);
-        }
-
-        .btn-premium.secondary {
-            background: rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(5px);
-        }
-
-        .btn-premium.secondary:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        /* --- 4. LAYANAN (Grid Sejajar & Icon Bulat) --- */
-        .services-section {
-            padding: 60px 0;
-            text-align: center;
-            background-color: #ffffff;
-            border-bottom: 1px solid #eeeeee;
-        }
-        
-        .services-section h2 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-        
-        .services-section p.subtitle {
-            font-size: 15px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .services-grid {
+        /* Sidebar Blocks (Right Column) */
+        .sidebar-panel {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-        
-        .service-box {
-            flex: 1;
-            min-width: 220px;
-            max-width: 260px;
-            text-align: center;
-            padding: 20px 15px;
-            background: #fbfcfe;
-            border: 1px solid #eef2f6;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-        
-        .service-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(44, 82, 157, 0.08);
-            border-color: #cbd5e1;
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background-color: #2c529d; 
-            color: white;
-            border-radius: 50%; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto 15px;
-            font-size: 26px;
-            box-shadow: 0 4px 10px rgba(44, 82, 157, 0.25);
-            transition: all 0.3s ease;
-        }
-        
-        .service-box:hover .service-icon {
-            transform: rotateY(180deg);
-            background-color: #1e3a8a;
-        }
-
-        .service-box h4 { font-size: 15px; font-weight: 700; color: #2c529d; margin-bottom: 8px; }
-        .service-box p { font-size: 13px; color: #666; line-height: 1.5; }
-
-        /* ==========================================================================
-           SAMBUTAN KEPALA WILAYAH (Camat)
-           ========================================================================== */
-        .executive-welcome-section {
-            padding: 80px 0;
-            background: #ffffff;
-            position: relative;
-            border-bottom: 1px solid #eeeeee;
-        }
-
-        .executive-grid {
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .camat-frame-decor {
-            position: relative;
-            max-width: 300px;
-            margin: 0 auto;
-        }
-
-        .camat-frame-decor::before {
-            content: "";
-            position: absolute;
-            top: 12px;
-            left: -12px;
-            width: 100%;
-            height: 100%;
-            border: 2px solid #2c529d;
-            border-radius: 12px;
-            z-index: 1;
-        }
-
-        .camat-photo {
-            width: 100%;
-            height: 380px;
-            border-radius: 12px;
-            object-fit: cover;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border: 4px solid #ffffff;
-        }
-
-        .executive-text h4 {
-            font-size: 13px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #2c529d;
-            margin-bottom: 10px;
-        }
-
-        .executive-text h2 {
-            font-size: 30px;
-            margin-bottom: 5px;
-            line-height: 1.2;
-            color: #333;
-        }
-
-        .camat-title {
-            display: block;
-            font-size: 13px;
-            font-weight: 700;
-            color: #666;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .camat-quote-box {
-            position: relative;
-            padding-left: 20px;
-            border-left: 4px solid #2c529d;
-            margin-bottom: 25px;
-        }
-
-        .camat-quote-box p {
-            font-size: 15px;
-            color: #444;
-            line-height: 1.8;
-            font-style: italic;
-        }
-
-        .camat-signature-block {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .camat-sign {
-            height: 45px;
-            width: auto;
-            opacity: 0.85;
-        }
-
-        .camat-name-tag {
-            font-family: 'Merriweather', serif;
-            font-size: 15px;
-            font-weight: 700;
-            color: #2c529d;
-        }
-
-        .camat-nip {
-            font-size: 12px;
-            color: #666;
-        }
-
-        /* ==========================================================================
-           LIVE HYDROLOGY & WEATHER WIDGETS
-           ========================================================================== */
-        .live-monitoring-section {
-            padding: 60px 0;
-            background: linear-gradient(180deg, #ffffff 0%, #f4f7f9 100%);
-            border-bottom: 1px solid #eeeeee;
-        }
-
-        .monitoring-wrapper {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border: 1px solid #eeeeee;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            flex-direction: column;
             gap: 30px;
         }
 
-        .monitor-card {
-            border-right: 1px solid #eef2f6;
-            padding-right: 30px;
-        }
-
-        .monitor-card:last-child {
-            border-right: none;
-            padding-right: 0;
-            padding-left: 10px;
-        }
-
-        .monitor-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .monitor-header i {
-            font-size: 26px;
-            color: #2c529d;
-        }
-
-        .monitor-header h3 {
-            font-size: 18px;
-            color: #2c529d;
-        }
-
-        .river-widget {
-            background: #f0f5fa;
-            border-radius: 12px;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .river-status-indicator {
-            z-index: 5;
-        }
-
-        .river-badge {
-            background: #10b981; 
-            color: #ffffff;
-            padding: 4px 12px;
-            font-weight: 700;
-            border-radius: 30px;
-            font-size: 11px;
-            display: inline-block;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-
-        .river-badge.siaga {
-            background: #ef4444;
-        }
-
-        .river-level-text {
-            font-size: 26px;
-            font-weight: 800;
-            color: #2c529d;
-        }
-
-        .river-level-desc {
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
-        }
-
-        .river-wave-graphics {
-            width: 120px;
-            height: 80px;
-            position: relative;
-        }
-
-        .wave-svg {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .weather-panel {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .weather-main {
-            background: linear-gradient(135deg, #2c529d 0%, #1e3a8a 100%);
-            color: #ffffff;
-            border-radius: 12px;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .weather-main i {
-            font-size: 36px;
-            color: #38bdf8;
-            margin-bottom: 8px;
-        }
-
-        .weather-temp {
-            font-size: 28px;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 5px;
-        }
-
-        .weather-stats {
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            border: 1px solid #eef2f6;
-        }
-
-        .stat-line {
-            display: flex;
-            justify-content: space-between;
-            font-size: 13px;
-            font-weight: 500;
-            color: #666;
-        }
-
-        .stat-line span.val {
-            font-weight: 700;
-            color: #2c529d;
-        }
-
-        /* ==========================================================================
-           INTERACTIVE GIS & 14 VILLAGES EXPLORER
-           ========================================================================== */
-        .gis-villages-section {
-            padding: 80px 0;
-            background: #f4f7f9;
-            border-bottom: 1px solid #eeeeee;
-        }
-
-        .section-headline {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 50px;
-        }
-
-        .section-headline h5 {
-            font-size: 12px;
-            text-transform: uppercase;
-            color: #2c529d;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-        }
-
-        .section-headline h2 {
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
-
-        .section-headline p {
-            font-size: 14px;
-            color: #666;
-        }
-
-        .gis-dashboard-layout {
-            display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 25px;
-            height: 480px;
-        }
-
-        .village-side-menu {
+        .widget-sidebar {
             background: #ffffff;
-            border-radius: 12px;
-            border: 1px solid #eeeeee;
-            padding: 15px;
-            overflow-y: auto;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-
-        .village-side-menu h3 {
-            font-size: 15px;
-            margin-bottom: 12px;
-            border-bottom: 2px solid #f4f7f9;
-            padding-bottom: 8px;
-            color: #2c529d;
-        }
-
-        .village-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .village-btn {
-            width: 100%;
-            text-align: left;
-            background: #f8fafc;
-            border: 1px solid #eef2f6;
-            padding: 10px 14px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            color: #444;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .village-btn i {
-            font-size: 11px;
-            color: #888;
-            transition: all 0.3s ease;
-        }
-
-        .village-btn:hover, .village-btn.active {
-            background: #2c529d;
-            color: #ffffff;
-            border-color: #2c529d;
-        }
-
-        .village-btn:hover i, .village-btn.active i {
-            color: #ffffff;
-            transform: translateX(3px);
-        }
-
-        .gis-visual-screen {
-            background: #ffffff;
-            border-radius: 12px;
-            border: 1px solid #eeeeee;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            overflow: hidden;
-        }
-
-        .gis-map-frame {
-            position: relative;
-            background: #eaeff5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border-right: 1px solid #eeeeee;
-        }
-
-        .mock-map-elements {
-            width: 90%;
-            height: 90%;
-            position: relative;
-            opacity: 0.95;
-        }
-
-        .map-river-line {
-            stroke: #4fa1c7;
-            stroke-width: 12px;
-            fill: none;
-            stroke-linecap: round;
-        }
-
-        .map-region-point {
-            position: absolute;
-            background: #2c529d;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            border: 3px solid #ffffff;
-            cursor: pointer;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.25);
-            transition: all 0.3s ease;
-        }
-
-        .map-region-point:hover, .map-region-point.active {
-            transform: scale(1.4);
-            background: #ef4444;
-            box-shadow: 0 0 12px rgba(239, 68, 68, 0.6);
-        }
-
-        .map-region-label {
-            position: absolute;
-            background: rgba(44, 82, 157, 0.9);
-            color: #ffffff;
-            font-size: 9px;
-            font-weight: 700;
-            padding: 2px 6px;
-            border-radius: 4px;
-            transform: translate(-50%, -25px);
-            white-space: nowrap;
-            pointer-events: none;
-        }
-
-        .village-details-panel {
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-        }
-
-        .village-card-header {
-            border-bottom: 2px dashed #eef2f6;
-            padding-bottom: 12px;
-            margin-bottom: 15px;
-        }
-
-        .village-card-header h3 {
-            font-size: 20px;
-            color: #2c529d;
-        }
-
-        .village-card-header p {
-            font-size: 11px;
-            color: #555;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 2px;
-        }
-
-        .v-details-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .v-details-item {
-            display: flex;
-            justify-content: space-between;
-            font-size: 13px;
-            border-bottom: 1px solid #f1f5f9;
-            padding-bottom: 6px;
-        }
-
-        .v-details-item span.label {
-            font-weight: 500;
-            color: #666;
-        }
-
-        .v-details-item span.value {
-            font-weight: 700;
-            color: #2c529d;
-        }
-
-        .v-map-route-btn {
-            background: #2c529d;
-            color: #ffffff;
-            padding: 10px;
-            text-align: center;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .v-map-route-btn:hover {
-            background: #1e3a8a;
-        }
-
-        /* ==========================================================================
-           TRANSPARENCY SECTION
-           ========================================================================== */
-        .transparency-section {
-            padding: 80px 0;
-            background: #ffffff;
-            position: relative;
-            border-bottom: 1px solid #eeeeee;
-        }
-
-        .transparency-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .visual-charts-card {
-            background: #f8fafc;
             border-radius: 16px;
             padding: 25px;
-            border: 1px solid #eeeeee;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.02);
         }
 
-        .chart-row {
-            margin-bottom: 20px;
-        }
-
-        .chart-row:last-child {
-            margin-bottom: 0;
-        }
-
-        .chart-info {
-            display: flex;
-            justify-content: space-between;
-            font-size: 13px;
+        .widget-title-sidebar {
+            font-size: 16px;
             font-weight: 700;
-            margin-bottom: 6px;
-            color: #2c529d;
-        }
-
-        .chart-bar-bg {
-            background: #e2e8f0;
-            height: 10px;
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .chart-bar-fill {
-            background: #2c529d;
-            height: 100%;
-            border-radius: 10px;
-            width: 0%; /* Animated via JS trigger */
-            transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .chart-bar-fill.satisfied {
-            background: #3b82f6;
-        }
-
-        .transparency-desc h5 {
-            font-size: 12px;
-            color: #2c529d;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .transparency-desc h2 {
-            font-size: 28px;
+            border-bottom: 2px solid var(--bg-sand-dark);
+            padding-bottom: 10px;
             margin-bottom: 15px;
-        }
-
-        .transparency-desc p {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 25px;
-        }
-
-        .metrics-block {
-            display: flex;
-            gap: 25px;
-        }
-
-        .metric-item {
-            flex: 1;
-        }
-
-        .metric-number {
-            font-family: 'Merriweather', serif;
-            font-size: 34px;
-            font-weight: 700;
-            color: #2c529d;
-            line-height: 1;
-            margin-bottom: 5px;
-        }
-
-        .metric-label {
-            font-size: 11px;
-            font-weight: 700;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* --- 5. GRID BERITA (Tampilan Kartu Sejajar) --- */
-        .news-grid-section { 
-            padding: 80px 0; 
-            background-color: #f4f7f9; 
-            border-bottom: 1px solid #eeeeee;
-        }
-        
-        .section-header { 
-            margin-bottom: 40px; 
-            text-align: center; 
-        }
-        
-        .section-header h3 { 
-            color: #2c529d; 
-            font-size: 28px; 
-            font-weight: 700; 
-            margin-bottom: 8px;
-        }
-        
-        .section-header p {
-            font-size: 14px;
-            color: #666;
-        }
-
-        .news-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-        
-        .news-item {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            width: 320px; 
-            border: 1px solid #eeeeee;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-        }
-        
-        .news-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(44, 82, 157, 0.12);
-            border-color: #cbd5e1;
-        }
-
-        .news-img {
             position: relative;
         }
 
-        .news-img img { 
-            width: 100%; 
-            height: 180px; 
-            object-fit: cover; 
-            transition: all 0.3s ease;
-        }
-        
-        .news-item:hover .news-img img {
-            transform: scale(1.05);
-        }
-
-        .category-badge {
-            position: absolute;
-            bottom: 12px;
-            left: 12px;
-            background: #2c529d;
-            color: #ffffff;
-            padding: 3px 10px;
-            font-size: 10px;
-            font-weight: 700;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .news-info { 
-            padding: 20px; 
-            flex-grow: 1; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: space-between; 
-        }
-        
-        .news-meta {
-            display: flex;
-            gap: 12px;
-            font-size: 11px;
-            color: #888;
-            margin-bottom: 8px;
-        }
-
-        .news-meta span i {
-            margin-right: 4px;
-            color: #2c529d;
-        }
-
-        .news-info h4 { 
-            font-size: 15px; 
-            color: #2c529d; 
-            margin-bottom: 8px; 
-            font-weight: 700; 
-            line-height: 1.4;
-            transition: all 0.3s ease;
-        }
-        
-        .news-item:hover .news-info h4 {
-            color: #1e3a8a;
-        }
-
-        .news-info p { 
-            font-size: 12px; 
-            color: #666; 
-            margin-bottom: 15px; 
-            line-height: 1.6;
-        }
-        
-        .news-footer-line {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #f1f5f9;
-            padding-top: 10px;
-            margin-top: auto;
-        }
-
-        .btn-card-read {
-            font-size: 12px;
-            font-weight: 700;
-            color: #2c529d;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .btn-card-read i {
-            transition: all 0.3s ease;
-        }
-
-        .news-item:hover .btn-card-read i {
-            transform: translateX(4px);
-        }
-
-        .news-date { font-size: 11px; color: #999; }
-
-        /* ==========================================================================
-           POTENSI UNGGULAN KECAMATAN
-           ========================================================================== */
-        .cultural-spotlight-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #2c529d 0%, #1e3a8a 100%);
-            color: #ffffff;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid #eeeeee;
-        }
-
-        .cultural-spotlight-section::before {
+        .widget-title-sidebar::after {
             content: '';
             position: absolute;
-            top: -150px;
-            right: -150px;
-            width: 400px;
-            height: 400px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-gold);
         }
 
-        .cultural-grid {
-            display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .cultural-text h5 {
-            color: #93c5fd;
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .cultural-text h2 {
-            color: #ffffff;
-            font-size: 30px;
-            margin-bottom: 15px;
-        }
-
-        .cultural-text p {
-            color: #cbd5e1;
-            font-size: 14px;
-            margin-bottom: 25px;
-        }
-
-        .cultural-features-list {
+        /* Sidebar Menu links */
+        .sidebar-links-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 8px;
         }
 
-        .cult-feat-item {
+        .sidebar-link-btn {
             display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
-        .cult-feat-item i {
-            color: #93c5fd;
-            font-size: 18px;
-            margin-top: 3px;
-        }
-
-        .cult-feat-item h4 {
-            color: #ffffff;
-            font-size: 15px;
-            margin-bottom: 2px;
-        }
-
-        .cult-feat-item p {
-            color: #cbd5e1;
-            font-size: 12px;
-            margin-bottom: 0;
-        }
-
-        .cult-visual-wrapper {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        .cult-img-frame {
-            border: 6px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            overflow: hidden;
-            width: 100%;
-            max-width: 450px;
-            height: 320px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-        }
-
-        .cult-img-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .cult-floating-tag {
-            position: absolute;
-            bottom: -15px;
-            left: 20px;
-            background: #ffffff;
-            color: #2c529d;
-            padding: 10px 20px;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-sand-dark);
+            padding: 12px 16px;
             border-radius: 8px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-            font-weight: 700;
             font-size: 13px;
-            border-left: 4px solid #2c529d;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: var(--transition-smooth);
         }
 
-        /* --- 6. FOOTER --- */
-        footer { 
-            background: #1e293b; 
-            color: #94a3b8; 
-            text-align: left; 
-            padding: 60px 0 30px; 
-            font-size: 13px; 
-            border-top: 4px solid #2c529d;
+        .sidebar-link-btn:hover {
+            background: var(--primary-blue);
+            color: #ffffff;
+        }
+
+        .sidebar-link-btn i {
+            font-size: 12px;
+            color: var(--accent-gold);
+        }
+
+        /* Info Quick-Table */
+        .quick-facts-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .quick-facts-table tr {
+            border-bottom: 1px solid rgba(30, 58, 138, 0.05);
+        }
+
+        .quick-facts-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .quick-facts-table td {
+            padding: 12px 0;
+            font-size: 13px;
+        }
+
+        .quick-facts-table td.fact-label {
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .quick-facts-table td.fact-value {
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-align: right;
+        }
+
+        /* ==========================================================================
+           5. PREMIUM INSTITUTIONAL FOOTER
+           ========================================================================== */
+        footer {
+            background: #09132e; /* Navy Blue gelap */
+            color: #94a3b8;
+            padding: 60px 0 30px;
+            border-top: 3px solid var(--accent-gold);
+            font-size: 13px;
         }
 
         .footer-grid {
@@ -1363,23 +616,23 @@
 
         .social-links {
             display: flex;
-            gap: 10px;
+            gap: 12px;
         }
 
         .social-btn {
-            width: 34px;
-            height: 34px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
             color: #ffffff;
-            transition: all 0.3s ease;
+            transition: var(--transition-smooth);
         }
 
         .social-btn:hover {
-            background: #2c529d;
+            background: var(--accent-gold);
             color: #ffffff;
             transform: translateY(-3px);
         }
@@ -1399,44 +652,38 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 35px;
+            width: 40px;
             height: 2px;
-            background: #2c529d;
+            background: var(--accent-gold);
         }
 
         .footer-links {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-        }
-
-        .footer-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            gap: 12px;
         }
 
         .footer-links a:hover {
-            color: #ffffff;
+            color: var(--accent-gold-light);
             padding-left: 5px;
         }
 
         .contact-box-footer {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
         }
 
         .footer-contact-item {
             display: flex;
-            gap: 12px;
+            gap: 15px;
             align-items: flex-start;
         }
 
         .footer-contact-item i {
-            color: #2c529d;
-            font-size: 16px;
+            color: var(--accent-gold);
+            font-size: 18px;
             margin-top: 3px;
         }
 
@@ -1451,81 +698,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 12px;
         }
 
         .copyright-bar p {
             margin: 0;
-        }
-
-        /* Search Popup Overlay */
-        .search-overlay-fullscreen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(30, 58, 138, 0.95);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .search-overlay-fullscreen.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .close-search {
-            position: absolute;
-            top: 40px;
-            right: 40px;
-            color: #ffffff;
-            font-size: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .close-search:hover {
-            color: #ef4444;
-        }
-
-        .search-input-box {
-            width: 100%;
-            max-width: 600px;
-            position: relative;
-        }
-
-        .search-field-inp {
-            width: 100%;
-            background: transparent;
-            border: none;
-            border-bottom: 2px solid #ffffff;
-            color: #ffffff;
-            padding: 15px 0;
-            font-size: 20px;
-            font-family: inherit;
-            outline: none;
-        }
-
-        .search-field-inp::placeholder {
-            color: rgba(255,255,255,0.5);
-        }
-
-        .btn-submit-search {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            background: transparent;
-            border: none;
-            color: #ffffff;
-            font-size: 20px;
-            cursor: pointer;
         }
 
         /* Back to Top Button */
@@ -1533,7 +709,7 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #2c529d;
+            background: var(--accent-gold);
             color: #ffffff;
             width: 45px;
             height: 45px;
@@ -1542,11 +718,11 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             opacity: 0;
             visibility: hidden;
             z-index: 90;
-            transition: all 0.3s ease;
+            transition: var(--transition-smooth);
         }
 
         .btn-back-to-top.show {
@@ -1555,53 +731,32 @@
         }
 
         .btn-back-to-top:hover {
-            background: #1e3a8a;
+            background: var(--primary-blue);
             transform: translateY(-5px);
         }
 
-        /* Scroll Reveal Effect class */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .scroll-reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* RESPONSIVE (Untuk Akses HP) */
-        @media (max-width: 992px) {
-            .navbar-content { flex-direction: column; gap: 15px; text-align: center; }
-            .brand-section { flex-direction: column; gap: 10px; }
-            .asn-logo-img { border-left: none; padding-left: 0; margin-left: 0; }
-            .nav-links-wrap { width: 100%; justify-content: center; margin-top: 10px; }
-            .nav-menu { width: 100%; justify-content: center; flex-wrap: wrap; }
-            
-            .hero-slider { height: auto; padding: 100px 0; }
-            .hero-inner-content h1 { font-size: 28px; }
-            
-            .executive-grid { grid-template-columns: 1fr; gap: 30px; }
-            .monitoring-wrapper { grid-template-columns: 1fr; }
-            .monitor-card { border-right: none; padding-right: 0; border-bottom: 1px solid #eeeeee; padding-bottom: 25px; }
-            .monitor-card:last-child { border-bottom: none; padding-bottom: 0; padding-left: 0; }
-            
-            .gis-dashboard-layout { grid-template-columns: 1fr; height: auto; }
-            .gis-visual-screen { grid-template-columns: 1fr; height: 400px; }
-            
-            .transparency-grid { grid-template-columns: 1fr; gap: 30px; }
-            .cultural-grid { grid-template-columns: 1fr; }
-            
-            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-            .copyright-bar { flex-direction: column; gap: 10px; text-align: center; }
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
         }
 
         @media (max-width: 768px) {
-            .top-bar-content { flex-direction: column; gap: 8px; text-align: center; }
-            .ticker-wrap { max-width: 100%; }
-            .nav-menu { display: none; } /* Terkontrol tombol burger di HP */
-            .mobile-toggle { display: block; }
+            .gov-main-title {
+                font-size: 16px;
+            }
+            .asn-logo-premium {
+                display: none;
+            }
+            .nav-menu {
+                display: none;
+            }
             .nav-menu.show {
                 display: flex;
                 flex-direction: column;
@@ -1610,24 +765,29 @@
                 left: 0;
                 width: 100%;
                 background: #ffffff;
-                padding: 15px;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-                border-top: 1px solid #eeeeee;
-                gap: 5px;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+                border-top: 1px solid #f1f5f9;
+                gap: 10px;
             }
-            .nav-menu.show li { width: 100%; text-align: left; }
-            .nav-menu.show a { display: block; width: 100%; }
-            .dropdown-content { position: static; transform: none; box-shadow: none; border: none; padding-left: 15px; display: none; }
-            .dropdown:hover .dropdown-content { display: block; }
+            .mobile-toggle {
+                display: block;
+            }
+            .page-header-banner h1 {
+                font-size: 28px;
+            }
+            .village-grid-layout {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
     <!-- ==========================================================================
-       TOP INFORMATION & NEWS TICKER BAR
+        TOP INFORMATION & NEWS TICKER BAR
        ========================================================================== -->
-    <div class="top-bar">
+    <div class="top-info-bar">
         <div class="container top-bar-content">
             <div class="ticker-wrap">
                 <span class="ticker-badge">INFO UTAMA</span>
@@ -1643,450 +803,260 @@
     </div>
 
     <!-- ==========================================================================
-       NAVIGATION MENU (Latar Putih, Teks Hitam)
+        NAVIGATION MENU
        ========================================================================== -->
-    <nav class="navbar-official" id="officialNavbar">
-        <div class="container navbar-content">
-            <div class="brand-section">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Lambang_Kabupaten_Pulang_Pisau.webp" alt="Logo Pulang Pisau" class="brand-logo">
-                <div class="brand-text">
-                    <span class="sub-brand">PEMERINTAH KABUPATEN PULANG PISAU</span>
-                    <span class="main-brand">Kecamatan Kahayan Tengah</span>
+    <nav class="navbar-premium" id="officialNavbar">
+        <div class="container navbar-container">
+            <div class="brand-lockup">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Lambang_Kabupaten_Pulang_Pisau.webp" alt="Logo Pulang Pisau" class="logo-pemkab">
+                <div class="brand-texts">
+                    <span class="gov-sub-title">PEMERINTAH KABUPATEN PULANG PISAU</span>
+                    <span class="gov-main-title">Kecamatan Kahayan Tengah</span>
                 </div>
-                <img src="https://lh3.googleusercontent.com/d/1Eq4RLbS1WvaaEh3Z0G9TI7s0G58yRImN" alt="Logo Berakhlak" class="asn-logo-img">
+                <img src="https://lh3.googleusercontent.com/d/1Eq4RLbS1WvaaEh3Z0G9TI7s0G58yRImN" alt="Logo Berakhlak" class="asn-logo-premium">
             </div>
 
             <div class="nav-links-wrap">
                 <ul class="nav-menu" id="navMenu">
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#">Profil <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
-                        <ul class="dropdown-content">
-                            <li><a href="sejarah.html">Sejarah &amp; Wilayah</a></li>
-                            <li><a href="#">Visi &amp; Misi</a></li>
-                            <li><a href="#">Struktur Organisasi</a></li>
-                            <li><a href="#">Daftar Pejabat</a></li>
-                        </ul>
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item active">
+                        <a href="#" class="nav-link">Profil <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="sejarah.html" class="dropdown-item">Sejarah & Wilayah</a>
+                            <a href="#" class="dropdown-item">Visi & Misi</a>
+                            <a href="#" class="dropdown-item">Struktur Organisasi</a>
+                            <a href="#" class="dropdown-item">Daftar Pejabat</a>
+                        </div>
                     </li>
-                    <li class="dropdown">
-                        <a href="#">Pelayanan <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
-                        <ul class="dropdown-content">
-                            <li><a href="#">Administrasi Kependudukan</a></li>
-                            <li><a href="#">Surat Rekomendasi</a></li>
-                            <li><a href="#">Alur Pengaduan</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Pelayanan <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Administrasi Kependudukan</a>
+                            <a href="#" class="dropdown-item">Surat Rekomendasi</a>
+                            <a href="#" class="dropdown-item">Alur Pengaduan</a>
+                        </div>
                     </li>
-                    <li><a href="#">Agenda</a></li>
-                    <li><a href="#">Galeri</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Agenda</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Galeri</a></li>
                 </ul>
-                <button class="btn-portal-search" id="searchTriggerBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 <div class="mobile-toggle" id="mobileMenuToggleBtn"><i class="fa-solid fa-bars"></i></div>
             </div>
         </div>
     </nav>
 
     <!-- ==========================================================================
-       HERO / BANNER UTAMA
+        BREADCRUMB & HERO HEADER
        ========================================================================== -->
-    <section class="hero-slider">
-        <div class="hero-inner-content">
-            <span class="hero-tagline">Portal Gerbang Digital Daerah</span>
-            <h1>Pusat Informasi &amp; Layanan Publik<br>Kecamatan Kahayan Tengah</h1>
-            <p>Berkomitmen mewujudkan integrasi tata kelola pemerintahan yang responsif, transparan, serta mengedepankan kearifan adat istiadat Borneo yang asri.</p>
-            <div class="hero-cta-group">
-                <a href="#e-layanan" class="btn-premium primary">E-Pelayanan <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
-                <a href="#welcome-camat" class="btn-premium secondary">Kenal Camat <i class="fa-solid fa-circle-user"></i></a>
+    <section class="page-header-banner">
+        <div class="container">
+            <h1>Sejarah &amp; Wilayah</h1>
+            <div class="breadcrumb-trail">
+                <a href="index.html">Beranda</a>
+                <span>/</span>
+                <span>Profil</span>
+                <span>/</span>
+                <span>Sejarah &amp; Wilayah</span>
             </div>
         </div>
     </section>
 
     <!-- ==========================================================================
-       4. LAYANAN (Grid Sejajar & Icon Bulat)
+        MAIN CONTENT AND SIDEBAR SECTION
        ========================================================================== -->
-    <section class="services-section scroll-reveal" id="e-layanan">
+    <section class="sejarah-wilayah-section">
         <div class="container">
-            <h2>Layanan Publik Digital</h2>
-            <p class="subtitle">Akses cepat sistem birokrasi, pengurusan surat menyurat, dan pengaduan</p>
-            
-            <div class="services-grid">
-                <div class="service-box">
-                    <div class="service-icon"><i class="fa-solid fa-id-card"></i></div>
-                    <h4>Kependudukan</h4>
-                    <p>Cek alur pengurusan KTP, KK, Kartu Identitas Anak, hingga Surat Mutasi.</p>
-                </div>
-                <div class="service-box">
-                    <div class="service-icon"><i class="fa-solid fa-handshake-angle"></i></div>
-                    <h4>Layanan Sosial</h4>
-                    <p>Informasi penyaluran bantuan pemerintah daerah dan jaminan sosial nasional.</p>
-                </div>
-                <div class="service-box">
-                    <div class="service-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-                    <h4>Transparansi Hukum</h4>
-                    <p>Unduh produk keputusan hukum daerah, Peraturan Bupati, hingga keputusan Camat.</p>
-                </div>
-                <div class="service-box">
-                    <div class="service-icon"><i class="fa-solid fa-bullhorn"></i></div>
-                    <h4>Kotak Pengaduan</h4>
-                    <p>Sampaikan kritik, saran, atau aduan fasilitas publik lewat saluran digital.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================================================
-       EXECUTIVE WELCOME SECTION (Camat)
-       ========================================================================== -->
-    <section class="executive-welcome-section scroll-reveal" id="welcome-camat">
-        <div class="container">
-            <div class="executive-grid">
-                <div class="camat-frame-decor">
-                    <img src="https://lh3.googleusercontent.com/d/1Gmf17RxRuODSN64AwNjs0_udYTaLwZEV" alt="Camat Kahayan Tengah" class="camat-photo">
-                </div>
-                <div class="executive-text">
-                    <h4>SAMBUTAN KEPALA WILAYAH</h4>
-                    <h2>Menyongsong Pelayanan Publik Terpadu Modern</h2>
-                    <span class="camat-title">Camat Kahayan Tengah</span>
-                    <div class="camat-quote-box">
+            <div class="content-grid">
+                
+                <!-- Main Article Left Column -->
+                <main class="main-article">
+                    
+                    <!-- block 1: Sejarah -->
+                    <div class="article-block">
+                        <span class="section-tag">Asal-Usul &amp; Latar Belakang</span>
+                        <h2>Sejarah Pembentukan Kecamatan</h2>
                         <p>
-                            "Selamat datang di portal informasi terintegrasi Kecamatan Kahayan Tengah. Kehadiran portal ini merupakan langkah nyata kami dalam mempercepat transformasi birokrasi yang lincah (Agile Government) dan meruntuhkan batas ruang administrasi demi kesejahteraan 14 desa binaan kami. Mari bersama membangun daerah dengan menjaga nilai tradisi dan teknologi."
+                            Eksistensi masyarakat di wilayah Kecamatan Kahayan Tengah tidak dapat dipisahkan dari alur kehidupan Sungai Kahayan yang menjadi urat nadi peradaban Suku Dayak Ngaju sejak berabad-abad silam. Secara historis adat, wilayah ini dahulunya berada dalam tata kelola Kedemangan Adat tradisional, yang mengatur tatanan adat istiadat, pembagian pemukiman bantaran sungai, serta sistem hukum lokal.
+                        </p>
+                        <p>
+                            Pada masa pemerintahan kolonial hingga pasca-kemerdekaan Indonesia, daerah aliran sungai (DAS) Kahayan mengalami penyesuaian administratif secara berkala demi mempermudah pembangunan. Sejarah krusial modern terbentuk pasca-reformasi ketika Provinsi Kalimantan Tengah menyelenggarakan penataan daerah otonom baru. 
+                        </p>
+                        <p>
+                            Kecamatan Kahayan Tengah secara administratif disahkan sejalan dengan momentum terbentuknya Kabupaten Pulang Pisau sebagai pemekaran dari Kabupaten Kapuas berdasarkan **Undang-Undang Republik Indonesia Nomor 5 Tahun 2002**. Sejak saat itu, pembangunan sarana publik dan tata pelayanan sipil berpusat di Desa Bukit Rawi sebagai ibukota kecamatan, berkolaborasi erat bersama tokoh kedemangan dalam memelihara warisan budaya leluhur, situs sakral Sandung, dan tatanan gotong-royong.
                         </p>
                     </div>
-                    <div class="camat-signature-block">
-                        <img src="https://placehold.co/120x60/png?text=Tanda+Tangan" alt="Tanda Tangan Camat" class="camat-sign" style="filter: contrast(120%) multiply(0.85);">
-                        <div>
-                            <p class="camat-name-tag">SISWO, S.Pd.Sd</p>
-                            <p class="camat-nip">NIP. 19690608 199309 1 001</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ==========================================================================
-       LIVE HYDROLOGICAL MONITOR & WEATHER (Premium Feature)
-       ========================================================================== -->
-    <section class="live-monitoring-section scroll-reveal">
-        <div class="container">
-            <div class="monitoring-wrapper">
-                
-                <!-- River Hydro Dashboard (Very Critical locally) -->
-                <div class="monitor-card">
-                    <div class="monitor-header">
-                        <i class="fa-solid fa-droplet"></i>
-                        <div>
-                            <h3>Status Ketinggian Air Sungai Kahayan</h3>
-                            <p style="font-size: 13px; color: #666;">Terintegrasi otomatis dengan sistem hidrologi pos pengamatan</p>
-                        </div>
-                    </div>
-                    <div class="river-widget">
-                        <div class="river-status-indicator">
-                            <span class="river-badge" id="waterAlertBadge">AMAN</span>
-                            <div class="river-level-text" id="waterLevelNum">3.40 m</div>
-                            <div class="river-level-desc">Kecepatan arus sungai konstan aman terpantau normal.</div>
-                        </div>
-                        <div class="river-wave-graphics">
-                            <!-- Animated Wave SVG -->
-                            <svg class="wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50" preserveAspectRatio="none">
-                                <path fill="#a5f3fc" opacity="0.5" d="M0,25 Q25,20 50,25 T100,25 L100,50 L0,50 Z">
-                                    <animate attributeName="d" dur="6s" repeatCount="indefinite" values="M0,25 Q25,20 50,25 T100,25 L100,50 L0,50 Z; M0,25 Q25,30 50,25 T100,25 L100,50 L0,50 Z; M0,25 Q25,20 50,25 T100,25 L100,50 L0,50 Z" />
-                                </path>
-                                <path fill="#38bdf8" opacity="0.8" d="M0,30 Q25,35 50,30 T100,30 L100,50 L0,50 Z">
-                                    <animate attributeName="d" dur="4s" repeatCount="indefinite" values="M0,30 Q25,35 50,30 T100,30 L100,50 L0,50 Z; M0,30 Q25,25 50,30 T100,30 L100,50 L0,50 Z; M0,30 Q25,35 50,30 T100,30 L100,50 L0,50 Z" />
-                                </path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
+                    <!-- block 2: Wilayah Geografis -->
+                    <div class="article-block">
+                        <span class="section-tag">Kondisi Spasial &amp; Batas</span>
+                        <h2>Kondisi Geografis &amp; Batas Wilayah</h2>
+                        <p>
+                            Kecamatan Kahayan Tengah terletak di bagian utara wilayah administratif Kabupaten Pulang Pisau, Provinsi Kalimantan Tengah. Wilayah ini secara geografis merupakan kawasan strategis yang menghubungkan langsung daerah hulu menuju hilir Kabupaten Pulang Pisau, serta berbatasan langsung secara kewilayahan dengan ibukota Provinsi, yaitu Kota Palangka Raya.
+                        </p>
+                        
+                        <p>
+                            Total luas lahan Kecamatan Kahayan Tengah tercatat sebesar 783,00 km² (sekitar 8,70% dari total wilayah Kabupaten Pulang Pisau). Karakteristik topografinya didominasi oleh dataran landai dengan rata-rata ketinggian berkisar 10 meter di atas permukaan laut (mdpl), di mana aliran megah Sungai Kahayan melintasi sepanjang daratan kecamatan ini, menjadikannya lahan basah yang kaya akan potensi perikanan sungai, kehutanan, dan pertanian subur.
+                        </p>
 
-                <!-- Climate Weather Panel -->
-                <div class="monitor-card">
-                    <div class="monitor-header">
-                        <i class="fa-solid fa-cloud-sun-rain"></i>
-                        <div>
-                            <h3>Kondisi Cuaca Hari Ini</h3>
-                            <p style="font-size: 13px; color: #666;">Prakiraan Wilayah Kecamatan Kahayan Tengah</p>
-                        </div>
-                    </div>
-                    <div class="weather-panel">
-                        <div class="weather-main">
-                            <i class="fa-solid fa-cloud-showers-water"></i>
-                            <div class="weather-temp">29°C</div>
-                            <span style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Hujan Ringan</span>
-                        </div>
-                        <div class="weather-stats">
-                            <div class="stat-line">
-                                <span>Kelembaban</span>
-                                <span class="val">84%</span>
-                            </div>
-                            <div class="stat-line">
-                                <span>Kec. Angin</span>
-                                <span class="val">12 km/jam</span>
-                            </div>
-                            <div class="stat-line">
-                                <span>Indeks UV</span>
-                                <span class="val">Sangat Rendah</span>
+                        <div class="boundary-table-box">
+                            <h3 style="font-size: 16px; margin-bottom: 15px; color: var(--primary-blue);">Batas Administratif Wilayah</h3>
+                            <div class="boundary-grid-cards">
+                                <div class="boundary-card">
+                                    <h4>Sebelah Utara</h4>
+                                    <p>Kecamatan Banama Tingang</p>
+                                </div>
+                                <div class="boundary-card">
+                                    <h4>Sebelah Timur</h4>
+                                    <p>Kabupaten Kapuas</p>
+                                </div>
+                                <div class="boundary-card">
+                                    <h4>Sebelah Selatan</h4>
+                                    <p>Kecamatan Jabiren Raya &amp; Kota Palangka Raya</p>
+                                </div>
+                                <div class="boundary-card">
+                                    <h4>Sebelah Barat</h4>
+                                    <p>Kota Palangka Raya</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-            </div>
-        </div>
-    </section>
+                    <!-- block 3: Pembagian Administrasi Desa (With Interactive Filter) -->
+                    <div class="article-block">
+                        <span class="section-tag">Pemerintahan Desa</span>
+                        <h2>Pembagian Wilayah Administrasi 14 Desa</h2>
+                        <p>
+                            Secara administrasi pemerintahan sipil daerah, Kecamatan Kahayan Tengah menaungi **14 Desa** definitif yang masing-masing dipimpin oleh Kepala Desa secara demokratis. Gunakan filter pencarian di bawah untuk mempermudah pencarian nama desa:
+                        </p>
 
-    <!-- ==========================================================================
-       INTERACTIVE GIS MAP & 14 VILLAGES EXPLORER
-       ========================================================================== -->
-    <section class="gis-villages-section scroll-reveal">
-        <div class="container">
-            <div class="section-headline">
-                <h5>EKSPLORASI GEOGRAFIS</h5>
-                <h2>Peta GIS Terpadu 14 Desa Kahayan Tengah</h2>
-                <p>Klik nama desa di daftar sebelah kiri untuk memproyeksikan data spasial, nama kepemimpinan pemerintahan, serta statistik potensi andalan desa masing-masing.</p>
-            </div>
-
-            <div class="gis-dashboard-layout">
-                
-                <!-- Village Selector Sidebar -->
-                <div class="village-side-menu">
-                    <h3>Daftar Desa</h3>
-                    <ul class="village-list">
-                        <li><button class="village-btn active" data-village="bukitrawi">Desa Bukit Rawi <i class="fa-solid fa-chevron-right"></i></button></li>
-                        <li><button class="village-btn" data-village="sigi">Desa Sigi <i class="fa-solid fa-chevron-right"></i></button></li>
-                        <li><button class="village-btn" data-village="tuwung">Desa Tuwung <i class="fa-solid fa-chevron-right"></i></button></li>
-                        <li><button class="village-btn" data-village="pendapilang">Desa Penda Pilang <i class="fa-solid fa-chevron-right"></i></button></li>
-                        <li><button class="village-btn" data-village="petukliti">Desa Petuk Liti <i class="fa-solid fa-chevron-right"></i></button></li>
-                        <li><button class="village-btn" data-village="bukitliti">Desa Bukit Liti <i class="fa-solid fa-chevron-right"></i></button></li>
-                    </ul>
-                </div>
-
-                <!-- Screen Dashboard -->
-                <div class="gis-visual-screen">
-                    <div class="gis-map-frame">
-                        <div class="mock-map-elements">
-                            <!-- River Path Watermark -->
-                            <svg style="width:100%; height:100%;">
-                                <path class="map-river-line" d="M 0,20 Q 150,80 180,240 T 320,400 T 400,480" />
-                            </svg>
-                            <!-- Pins Mapping corresponding to DB -->
-                            <div class="map-region-point active" style="top: 20%; left: 30%;" data-link="bukitrawi"><span class="map-region-label">Bukit Rawi</span></div>
-                            <div class="map-region-point" style="top: 45%; left: 40%;" data-link="sigi"><span class="map-region-label">Sigi</span></div>
-                            <div class="map-region-point" style="top: 60%; left: 45%;" data-link="tuwung"><span class="map-region-label">Tuwung</span></div>
-                            <div class="map-region-point" style="top: 70%; left: 70%;" data-link="pendapilang"><span class="map-region-label">Penda Pilang</span></div>
-                            <div class="map-region-point" style="top: 30%; left: 80%;" data-link="petukliti"><span class="map-region-label">Petuk Liti</span></div>
-                            <div class="map-region-point" style="top: 15%; left: 60%;" data-link="bukitliti"><span class="map-region-label">Bukit Liti</span></div>
+                        <!-- Live Search Bar -->
+                        <div class="filter-container">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="villageFilterInp" class="filter-input" placeholder="Ketik nama desa untuk memfilter daftar (Contoh: Sigi, Tuwung)...">
+                        </div>
+                        
+                        <div class="village-grid-layout" id="villagesListContainer">
+                            <div class="village-info-card" data-name="bukit rawi">
+                                <h4>Desa Bukit Rawi</h4>
+                                <p>Status: Ibukota Kecamatan</p>
+                            </div>
+                            <div class="village-info-card" data-name="sigi">
+                                <h4>Desa Sigi</h4>
+                                <p>Status: Sentra Ukiran Patung Dayak</p>
+                            </div>
+                            <div class="village-info-card" data-name="tuwung">
+                                <h4>Desa Tuwung</h4>
+                                <p>Status: Desa Definitif</p>
+                            </div>
+                            <div class="village-info-card" data-name="penda pilang">
+                                <h4>Desa Penda Pilang</h4>
+                                <p>Status: Desa Definitif</p>
+                            </div>
+                            <div class="village-info-card" data-name="petuk liti">
+                                <h4>Desa Petuk Liti</h4>
+                                <p>Status: Desa Definitif</p>
+                            </div>
+                            <div class="village-info-card" data-name="bukit liti">
+                                <h4>Desa Bukit Liti</h4>
+                                <p>Status: Desa Definitif</p>
+                            </div>
+                            <div class="village-info-card" data-name="tahawa">
+                                <h4>Desa Tahawa</h4>
+                                <p>Status: Desa Definitif</p>
+                            </div>
+                            <div class="village-info-card" data-name="bereng rambang">
+                                <h4>Desa Bereng Rambang</h4>
+                                <p>Status: Desa Definitif</p>
+                            </div>
+                            <div class="village-info-card" data-name="parahangan">
+                                <h4>Desa Parahangan</h4>
+                                <p>Status: Desa Definitif</p>
+                            </div>
+                            <div class="village-info-card" data-name="penda barania">
+                                <h4>Desa Penda Barania</h4>
+                                <p>Status: Desa Definitif</p>
+                            </div>
+                            <div class="village-info-card" data-name="tanjung sanggalang">
+                                <h4>Desa Tanjung Sanggalang</h4>
+                                <p>Status: Desa Definitif</p>
+                            </div>
+                            <div class="village-info-card" data-name="pamarunan">
+                                <h4>Desa Pamarunan</h4>
+                                <p>Status: Desa Definitif</p>
+                            </div>
+                            <div class="village-info-card" data-name="bahu palawa">
+                                <h4>Desa Bahu Palawa</h4>
+                                <p>Status: Desa Definitif</p>
+                            </div>
+                            <div class="village-info-card" data-name="bukit bamba">
+                                <h4>Desa Bukit Bamba / Balukon</h4>
+                                <p>Status: Desa Definitif</p>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- block 4: Demografi dan Sosial Budaya -->
+                    <div class="article-block">
+                        <span class="section-tag">Kependudukan &amp; Adat</span>
+                        <h2>Sosial Budaya &amp; Karakteristik Masyarakat</h2>
+                        <p>
+                            Penduduk asli Kecamatan Kahayan Tengah didominasi oleh suku bangsa Dayak, khususnya dari sub-Suku **Dayak Ngaju**. Keseharian penduduk sangat dipengaruhi kebudayaan sungai, tercermin dari tata pemukiman tradisional yang memanjang berjejer mengikuti aliran Sungai Kahayan. Keberagaman keyakinan masyarakat dirawat dengan sangat harmonis, dengan penganut Kristen Protestan, Katolik, Islam, serta pemeluk agama Hindu Kaharingan yang masih teguh memegang tradisi upacara keagamaan leluhur.
+                        </p>
+                        <p>
+                            Perekonomian lokal bertumpu pada sektor perkebunan karet mandiri, industri pengolahan kayu kehutanan, perikanan tangkap sungai, serta kerajinan anyaman rotan bermotif khas Dayak bernilai seni tinggi. Sektor kerajinan anyaman ini berpusat di beberapa desa binaan BUMDes dan telah diakui karena kehalusan hasil kerajinannya.
+                        </p>
+                    </div>
+
+                </main>
+
+                <!-- Sidebar Panels Right Column -->
+                <aside class="sidebar-panel">
                     
-                    <div class="village-details-panel" id="villageInfoBox">
-                        <div class="village-card-header">
-                            <h3 id="vName">Desa Bukit Rawi</h3>
-                            <p id="vSubtitle">Pusat Administratif &amp; Budaya</p>
-                        </div>
-                        <ul class="v-details-list">
-                            <li class="v-details-item">
-                                <span class="label">Kepala Desa</span>
-                                <span class="value" id="vKades">Zariano, S.E.</span>
-                            </li>
-                            <li class="v-details-item">
-                                <span class="label">Luas Wilayah</span>
-                                <span class="value" id="vArea">72,50 km²</span>
-                            </li>
-                            <li class="v-details-item">
-                                <span class="label">Jumlah Penduduk</span>
-                                <span class="value" id="vPop">2.410 Jiwa</span>
-                            </li>
-                            <li class="v-details-item">
-                                <span class="label">Potensi Utama</span>
-                                <span class="value" id="vPot">Situs Budaya Sandung &amp; Kerajinan</span>
-                            </li>
+                    <!-- Quick Links Menu widget -->
+                    <div class="widget-sidebar">
+                        <h3 class="widget-title-sidebar">Navigasi Profil</h3>
+                        <ul class="sidebar-links-list">
+                            <li><a href="sejarah.html" class="sidebar-link-btn" style="background: var(--primary-blue); color: #ffffff;">Sejarah &amp; Wilayah <i class="fa-solid fa-chevron-right" style="color:#ffffff;"></i></a></li>
+                            <li><a href="#" class="sidebar-link-btn">Visi &amp; Misi <i class="fa-solid fa-chevron-right"></i></a></li>
+                            <li><a href="#" class="sidebar-link-btn">Struktur Organisasi <i class="fa-solid fa-chevron-right"></i></a></li>
+                            <li><a href="#" class="sidebar-link-btn">Daftar Aparatur Pejabat <i class="fa-solid fa-chevron-right"></i></a></li>
                         </ul>
-                        <a href="#" class="v-map-route-btn"><i class="fa-solid fa-map-location-dot"></i> Rute Lokasi Kantor Desa</a>
                     </div>
-                </div>
+
+                    <!-- Fast Facts Widget -->
+                    <div class="widget-sidebar">
+                        <h3 class="widget-title-sidebar">Informasi Ringkas</h3>
+                        <table class="quick-facts-table">
+                            <tr>
+                                <td class="fact-label">Ibukota Kecamatan</td>
+                                <td class="fact-value">Bukit Rawi</td>
+                            </tr>
+                            <tr>
+                                <td class="fact-label">Luas Wilayah</td>
+                                <td class="fact-value">783,00 km²</td>
+                            </tr>
+                            <tr>
+                                <td class="fact-label">Jumlah Desa</td>
+                                <td class="fact-value">14 Desa</td>
+                            </tr>
+                            <tr>
+                                <td class="fact-label">Suku Mayoritas</td>
+                                <td class="fact-value">Dayak Ngaju</td>
+                            </tr>
+                            <tr>
+                                <td class="fact-label">Dasar Hukum Pembentukan</td>
+                                <td class="fact-value">UU No. 5 Tahun 2002</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </aside>
 
             </div>
         </div>
     </section>
 
     <!-- ==========================================================================
-       TRANSPARENCY & STATISTICAL INSIGHTS
-       ========================================================================== -->
-    <section class="transparency-section scroll-reveal">
-        <div class="container">
-            <div class="transparency-grid">
-                
-                <!-- SVG Charting / Progress metrics -->
-                <div class="visual-charts-card">
-                    <div class="chart-row">
-                        <div class="chart-info">
-                            <span>Keadilan Penyaluran BLT &amp; Bansos</span>
-                            <span>100%</span>
-                        </div>
-                        <div class="chart-bar-bg">
-                            <div class="chart-bar-fill" style="width: 100%;"></div>
-                        </div>
-                    </div>
-                    <div class="chart-row">
-                        <div class="chart-info">
-                            <span>Kepuasan Publik (Indeks SKM)</span>
-                            <span>88.4%</span>
-                        </div>
-                        <div class="chart-bar-bg">
-                            <div class="chart-bar-fill satisfied" style="width: 88.4%;"></div>
-                        </div>
-                    </div>
-                    <div class="chart-row">
-                        <div class="chart-info">
-                            <span>Realisasi Penyerapan Dana Anggaran Daerah</span>
-                            <span>92.6%</span>
-                        </div>
-                        <div class="chart-bar-bg">
-                            <div class="chart-bar-fill" style="width: 92.6%;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text stats metrics summary -->
-                <div class="transparency-desc">
-                    <h5>INTEGRITAS &amp; TRANSPARENSI</h5>
-                    <h2>Akuntabilitas Pengelolaan Pemerintahan Desa</h2>
-                    <p>Secara berkala kami mempublikasikan penyerapan dana alokasi daerah maupun dana bantuan nasional sebagai komitmen bebas korupsi (Good Governance) di wilayah Kecamatan Kahayan Tengah.</p>
-                    <div class="metrics-block">
-                        <div class="metric-item">
-                            <div class="metric-number">10.605</div>
-                            <div class="metric-label">Total Penduduk</div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-number">14</div>
-                            <div class="metric-label">Desa Binaan</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================================================
-       5. GRID BERITA (Tampilan Kartu Sejajar)
-       ========================================================================== -->
-    <section class="news-grid-section scroll-reveal">
-        <div class="container">
-            <div class="section-header">
-                <h3>Kabar Terkini &amp; Siaran Pers Resmi</h3>
-                <p>Pantau dinamika kemajuan wilayah pembangunan, kegiatan camat, dan informasi regulasi terupdate</p>
-            </div>
-
-            <div class="news-grid">
-                
-                <!-- Card news 1 -->
-                <div class="news-item">
-                    <div class="news-img">
-                        <img src="https://lh3.googleusercontent.com/d/1zwbqd59Xk_MWu6kuoN0VJJfOGQiroGqi" alt="Pembangunan Jalan">
-                        <span class="category-badge">Infrastruktur</span>
-                    </div>
-                    <div class="news-info">
-                        <div class="news-meta">
-                            <span><i class="fa-solid fa-calendar"></i> 24 Mei 2026</span>
-                            <span><i class="fa-solid fa-clock"></i> 3 mnt baca</span>
-                        </div>
-                        <h4>Koordinasi Penanganan Jalan Poros Bukit Liti - Bukit Rawi</h4>
-                        <p>Muspika menggelar koordinasi perbaikan titik amblas jalan raya utama penghubung antar desa...</p>
-                        <div class="news-footer-line">
-                            <span class="news-date">Mei 2026</span>
-                            <a href="#" class="btn-card-read">Baca <i class="fa-solid fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card news 2 -->
-                <div class="news-item">
-                    <div class="news-img">
-                        <img src="https://lh3.googleusercontent.com/d/1zwbqd59Xk_MWu6kuoN0VJJfOGQiroGqi" alt="Rapat Stunting">
-                        <span class="category-badge">Kesehatan</span>
-                    </div>
-                    <div class="news-info">
-                        <div class="news-meta">
-                            <span><i class="fa-solid fa-calendar"></i> 22 Mei 2026</span>
-                            <span><i class="fa-solid fa-clock"></i> 4 mnt baca</span>
-                        </div>
-                        <h4>Rembuk Stunting Kecamatan Guna Optimalkan Posyandu Desa</h4>
-                        <p>Langkah preventif pencegahan perlambatan pertumbuhan balita (Stunting) dijalankan secara masif...</p>
-                        <div class="news-footer-line">
-                            <span class="news-date">Mei 2026</span>
-                            <a href="#" class="btn-card-read">Baca <i class="fa-solid fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card news 3 -->
-                <div class="news-item">
-                    <div class="news-img">
-                        <img src="https://lh3.googleusercontent.com/d/1zwbqd59Xk_MWu6kuoN0VJJfOGQiroGqi" alt="Seni Dayak">
-                        <span class="category-badge">Kebudayaan</span>
-                    </div>
-                    <div class="news-info">
-                        <div class="news-meta">
-                            <span><i class="fa-solid fa-calendar"></i> 18 Mei 2026</span>
-                            <span><i class="fa-solid fa-clock"></i> 5 mnt baca</span>
-                        </div>
-                        <h4>Eksibisi Seni Tari Adat Dayak di Arena Bukit Rawi</h4>
-                        <p>Membina kreatifitas generasi milenial setempat guna menjaga orisinalitas kesenian adat daerah...</p>
-                        <div class="news-footer-line">
-                            <span class="news-date">Mei 2026</span>
-                            <a href="#" class="btn-card-read">Baca <i class="fa-solid fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================================================
-       LOCAL INDUSTRIAL & ECO SHOWCASE
-       ========================================================================== -->
-    <section class="cultural-spotlight-section scroll-reveal">
-        <div class="container">
-            <div class="cultural-grid">
-                
-                <div class="cultural-text">
-                    <h5>POTENSI UNGGULAN KECAMATAN</h5>
-                    <h2>Kerajinan Anyaman Rotan Leluhur Dayak</h2>
-                    <p>Rotan hutan berkualitas premium diolah secara manual oleh kelompok pengrajin terampil lokal di Kahayan Tengah untuk menghasilkan produk interior berkelas internasional.</p>
-                    <ul class="cultural-features-list">
-                        <li class="cult-feat-item">
-                            <i class="fa-solid fa-award"></i>
-                            <div>
-                                <h4>Dukungan Pemasaran BUMDes</h4>
-                                <p>Setiap produk didistribusikan secara adil lewat ekosistem toko digital terpadu.</p>
-                            </div>
-                        </li>
-                        <li class="cult-feat-item">
-                            <i class="fa-solid fa-earth-southeast-asia"></i>
-                            <div>
-                                <h4>Serat Alami Ramah Lingkungan</h4>
-                                <p>Proses pemanenan rotan mematuhi prinsip keberlanjutan kelestarian hutan adat.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="cult-visual-wrapper">
-                    <div class="cult-img-frame">
-                        <img src="https://lh3.googleusercontent.com/d/1zwbqd59Xk_MWu6kuoN0VJJfOGQiroGqi" alt="Anyaman Rotan Borneo">
-                    </div>
-                    <div class="cult-floating-tag">100% Produk Kerajinan Asli</div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================================================
-       6. FOOTER
+        PREMIUM INSTITUTIONAL FOOTER
        ========================================================================== -->
     <footer>
         <div class="container">
@@ -2135,76 +1105,13 @@
         </div>
     </footer>
 
-    <!-- ==========================================================================
-       SEARCH OVERLAY
-       ========================================================================== -->
-    <div class="search-overlay-fullscreen" id="searchFullscreen">
-        <div class="close-search" id="closeSearchBtn"><i class="fa-solid fa-xmark"></i></div>
-        <div class="search-input-box">
-            <input type="text" class="search-field-inp" placeholder="Ketik kata kunci pencarian (contoh: KTP, Musrenbang)..." id="searchQueryInp">
-            <button class="btn-submit-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-    </div>
-
     <!-- Back to top trigger -->
     <div class="btn-back-to-top" id="backToTopBtn"><i class="fa-solid fa-arrow-up"></i></div>
 
     <!-- ==========================================================================
-       INTERACTIVE JAVASCRIPT SYSTEM
+        INTERACTIVE JAVASCRIPT SYSTEM
        ========================================================================== -->
     <script>
-        // Database mock for GIS 14 villages
-        const villageDatabase = {
-            bukitrawi: {
-                name: "Desa Bukit Rawi",
-                subtitle: "Pusat Administratif & Budaya",
-                kades: "Zariano, S.E.",
-                area: "72,50 km²",
-                population: "2.410 Jiwa",
-                potential: "Situs Budaya Sandung & Kerajinan"
-            },
-            sigi: {
-                name: "Desa Sigi",
-                subtitle: "Kawasan Agropolitan Lestari",
-                kades: "Novianto, S.Pd.",
-                area: "54,20 km²",
-                population: "1.240 Jiwa",
-                potential: "Pertanian & Perikanan Sungai"
-            },
-            tuwung: {
-                name: "Desa Tuwung",
-                subtitle: "Gerbang Transportasi Kahayan",
-                kades: "Pramono, S.Sos.",
-                area: "48,15 km²",
-                population: "980 Jiwa",
-                potential: "Perkebunan Karet & Jasa"
-            },
-            pendapilang: {
-                name: "Desa Penda Pilang",
-                subtitle: "Sentra Peradaban Tradisi",
-                kades: "Samberianto",
-                area: "85,60 km²",
-                population: "740 Jiwa",
-                potential: "Pemanfaatan Hasil Hutan Bukan Kayu"
-            },
-            petukliti: {
-                name: "Desa Petuk Liti",
-                subtitle: "Kawasan Pengembangan Ekonomi Baru",
-                kades: "Supardian",
-                area: "61,10 km²",
-                population: "1.150 Jiwa",
-                potential: "Hortikultura & Peternakan Sapi"
-            },
-            bukitliti: {
-                name: "Desa Bukit Liti",
-                subtitle: "Pusat Riset Botani & Hutan Lindung",
-                kades: "Yansonsen",
-                area: "94,30 km²",
-                population: "1.325 Jiwa",
-                potential: "Wisata Hutan Pendidikan & Jamur Hutan"
-            }
-        };
-
         document.addEventListener("DOMContentLoaded", () => {
             
             // 1. Sticky Navbar Effect on Scroll
@@ -2217,91 +1124,7 @@
                 }
             });
 
-            // 2. Active Scroll Reveal Animation Integration
-            const scrollElements = document.querySelectorAll(".scroll-reveal");
-            const elementInView = (el, dividend = 1) => {
-                const elementTop = el.getBoundingClientRect().top;
-                return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
-            };
-            const displayScrollElement = (element) => {
-                element.classList.add("revealed");
-            };
-            const handleScrollAnimation = () => {
-                scrollElements.forEach((el) => {
-                    if (elementInView(el, 1.15)) {
-                        displayScrollElement(el);
-                    }
-                });
-            };
-            window.addEventListener("scroll", () => { handleScrollAnimation(); });
-            handleScrollAnimation(); // Trigger on load once
-
-            // 3. GIS Interactive Villages Switcher
-            const villageButtons = document.querySelectorAll(".village-btn");
-            const mapPins = document.querySelectorAll(".map-region-point");
-            
-            const updateVillageDashboard = (villageId) => {
-                const data = villageDatabase[villageId];
-                if (!data) return;
-
-                // Update text elements elegantly
-                document.getElementById("vName").innerText = data.name;
-                document.getElementById("vSubtitle").innerText = data.subtitle;
-                document.getElementById("vKades").innerText = data.kades;
-                document.getElementById("vArea").innerText = data.area;
-                document.getElementById("vPop").innerText = data.population;
-                document.getElementById("vPot").innerText = data.potential;
-
-                // Toggle Active buttons
-                villageButtons.forEach(btn => {
-                    if (btn.getAttribute("data-village") === villageId) {
-                        btn.classList.add("active");
-                    } else {
-                        btn.classList.remove("active");
-                    }
-                });
-
-                // Toggle Map point active markers
-                mapPins.forEach(pin => {
-                    if (pin.getAttribute("data-link") === villageId) {
-                        pin.classList.add("active");
-                    } else {
-                        pin.classList.remove("active");
-                    }
-                });
-            };
-
-            // Hook Event Listeners for side buttons
-            villageButtons.forEach(btn => {
-                btn.addEventListener("click", () => {
-                    const id = btn.getAttribute("data-village");
-                    updateVillageDashboard(id);
-                });
-            });
-
-            // Hook Event Listeners for Map points directly
-            mapPins.forEach(pin => {
-                pin.addEventListener("click", () => {
-                    const id = pin.getAttribute("data-link");
-                    updateVillageDashboard(id);
-                });
-            });
-
-            // 4. Search Fullscreen overlay triggers
-            const searchTrigger = document.getElementById("searchTriggerBtn");
-            const searchOverlay = document.getElementById("searchFullscreen");
-            const closeSearch = document.getElementById("closeSearchBtn");
-
-            searchTrigger.addEventListener("click", () => {
-                searchOverlay.classList.add("active");
-                document.getElementById("searchQueryInp").focus();
-            });
-
-            closeSearch.addEventListener("click", () => {
-                searchOverlay.classList.remove("active");
-            });
-
-            // 5. Back to Top dynamic trigger
+            // 2. Back to Top dynamic trigger
             const b2tBtn = document.getElementById("backToTopBtn");
             window.addEventListener("scroll", () => {
                 if (window.scrollY > 300) {
@@ -2314,7 +1137,7 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // 6. Responsive Mobile Navigation Menu Drawer
+            // 3. Responsive Mobile Navigation Menu Drawer
             const mobileMenuBtn = document.getElementById("mobileMenuToggleBtn");
             const navMenu = document.getElementById("navMenu");
 
@@ -2322,25 +1145,21 @@
                 navMenu.classList.toggle("show");
             });
 
-            // 7. Dynamic Simulator of Water Level POS Hydrology Pos
-            setInterval(() => {
-                const variance = (Math.random() * 0.1 - 0.05).toFixed(2);
-                const currentVal = parseFloat(document.getElementById("waterLevelNum").innerText);
-                const newVal = (currentVal + parseFloat(variance)).toFixed(2);
-                
-                if(newVal > 2.00 && newVal < 4.50) {
-                    document.getElementById("waterLevelNum").innerText = newVal + " m";
-                    const badge = document.getElementById("waterAlertBadge");
-                    if (newVal > 4.20) {
-                        badge.innerText = "SIAGA";
-                        badge.className = "river-badge siaga";
-                    } else {
-                        badge.innerText = "AMAN";
-                        badge.className = "river-badge";
-                    }
-                }
-            }, 8000);
+            // 4. Live Search Filter for Villages
+            const filterInput = document.getElementById("villageFilterInp");
+            const cards = document.querySelectorAll(".village-info-card");
 
+            filterInput.addEventListener("input", () => {
+                const query = filterInput.value.toLowerCase().trim();
+                cards.forEach(card => {
+                    const villageName = card.getAttribute("data-name");
+                    if (villageName.includes(query)) {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            });
         });
     </script>
 </body>
