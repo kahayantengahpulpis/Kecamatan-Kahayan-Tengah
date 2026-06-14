@@ -1,0 +1,12 @@
+body {
+    background-color: #e0f2fe; /* Mengubah warna latar belakang jadi biru muda */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1 {
+    color: #0369a1; /* Mengubah warna tulisan judul */
+    font-size: 32px;
+}
+p {
+    color: #334155;
+    line-height: 1.6;
+}
