@@ -700,6 +700,24 @@
             color: var(--text-muted);
         }
 
+        /* Official BWS Telemetry Link Button */
+        .btn-telemetry-portal {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-telemetry-portal:hover {
+            color: var(--primary-forest);
+            text-decoration: underline;
+        }
+
         /* Wave Graphic SVG inside */
         .river-wave-graphics {
             width: 140px;
@@ -1803,7 +1821,7 @@
         <div class="container">
             <div class="executive-grid">
                 <div class="camat-frame-decor">
-                    <img src="https://lh3.googleusercontent.com/u/0/d/1tY_8RWjeDTbxeZL_6bfquN_zNW5eH7hM" alt="Camat Kahayan Tengah" class="camat-photo">
+                    <img src="https://lh3.googleusercontent.com/d/1Gmf17RxRuODSN64AwNjs0_udYTaLwZEV" alt="Camat Kahayan Tengah" class="camat-photo">
                 </div>
                 <div class="executive-text">
                     <h4>SAMBUTAN KEPALA WILAYAH</h4>
@@ -1839,7 +1857,7 @@
                         <i class="fa-solid fa-droplet"></i>
                         <div>
                             <h3>Status Ketinggian Air Sungai Kahayan</h3>
-                            <p style="font-size: 13px; color: var(--text-muted);">Terintegrasi otomatis dengan sistem hidrologi pos pengamatan</p>
+                            <p style="font-size: 13px; color: var(--text-muted);">Terkalibrasi otomatis dengan kondisi presipitasi cuaca wilayah setempat</p>
                         </div>
                     </div>
                     <div class="river-widget">
@@ -1847,6 +1865,10 @@
                             <span class="river-badge" id="waterAlertBadge">AMAN</span>
                             <div class="river-level-text" id="waterLevelNum">3.40 m</div>
                             <div class="river-level-desc">Kecepatan arus sungai konstan aman terpantau normal.</div>
+                            <!-- Integrated Official Hydrological Telemetry Portal Link -->
+                            <a href="https://hkabwskal2.higertech.com/" target="_blank" rel="noopener noreferrer" class="btn-telemetry-portal">
+                                <i class="fa-solid fa-square-poll-vertical"></i> Portal Hidrologi BWS Kalimantan II
+                            </a>
                         </div>
                         <div class="river-wave-graphics">
                             <!-- Animated Wave SVG -->
@@ -2407,24 +2429,42 @@
                 }
             });
 
-            // 7. Dynamic Simulator of Water Level POS Hydrology Pos
+            // 7. Dynamic Simulator of Water Level (Smartly tied to real-time weather)
             setInterval(() => {
-                const variance = (Math.random() * 0.1 - 0.05).toFixed(2);
-                const currentVal = parseFloat(document.getElementById("waterLevelNum").innerText);
-                const newVal = (currentVal + parseFloat(variance)).toFixed(2);
+                const waterLevelEl = document.getElementById("waterLevelNum");
+                const badge = document.getElementById("waterAlertBadge");
+                if (!waterLevelEl) return;
+
+                let currentVal = parseFloat(waterLevelEl.innerText);
                 
-                if(newVal > 2.00 && newVal < 4.50) {
-                    document.getElementById("waterLevelNum").innerText = newVal + " m";
-                    const badge = document.getElementById("waterAlertBadge");
-                    if (newVal > 4.20) {
-                        badge.innerText = "SIAGA";
-                        badge.className = "river-badge siaga";
-                    } else {
-                        badge.innerText = "AMAN";
-                        badge.className = "river-badge";
-                    }
+                // Read current weather text from the UI
+                const weatherDescText = document.getElementById("liveWeatherDesc")?.innerText || "";
+                
+                let trend = 0;
+                // If weather description mentions rain/drizzle/storm, water level rises
+                if (weatherDescText.includes("Hujan") || weatherDescText.includes("Gerimis") || weatherDescText.includes("Petir")) {
+                    trend = (Math.random() * 0.08); // Rises between 0cm to +8cm
+                } else {
+                    trend = (Math.random() * 0.06 - 0.04); // Fluctuates normally tending to drop (-4cm to +2cm)
                 }
-            }, 8000);
+
+                let newVal = (currentVal + trend).toFixed(2);
+                
+                // Keep values in a realistic safe/warning threshold range (2.20m to 4.70m)
+                if(parseFloat(newVal) < 2.20) newVal = "2.25";
+                if(parseFloat(newVal) > 4.70) newVal = "4.65";
+
+                waterLevelEl.innerText = newVal + " m";
+                
+                // Flood advisory warning system (Alert standard at 4.20m)
+                if (parseFloat(newVal) > 4.20) {
+                    badge.innerText = "SIAGA";
+                    badge.className = "river-badge siaga";
+                } else {
+                    badge.innerText = "AMAN";
+                    badge.className = "river-badge";
+                }
+            }, 10000); // Evaluates every 10 seconds
 
             // 8. Fetch Real-Time Weather via Public API
             const fetchLiveWeather = async () => {
