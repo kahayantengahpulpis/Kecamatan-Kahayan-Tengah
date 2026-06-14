@@ -15,54 +15,36 @@
     
     <style>
         /* ==========================================================================
-           1. ROOT VARIABLES & GLOBAL STYLES (Modern Dayak Executive Palette)
+           Kombinasi Desain CSS Kamu (Biru Royal Modern)
            ========================================================================== */
-        :root {
-            --primary-forest: #0d3b30;    /* Hijau Botol Tua - Borneo Forest */
-            --primary-forest-light: #165345;
-            --accent-gold: #d97706;       /* Emas Rotan / Ochre */
-            --accent-gold-light: #f59e0b;
-            --bg-sand: #fbf9f4;           /* Warm Sand Cream */
-            --bg-sand-dark: #f5f1e6;
-            --text-dark: #1e293b;         /* Slate 800 */
-            --text-muted: #475569;        /* Slate 600 */
-            --card-border: rgba(13, 59, 48, 0.08);
-            --shadow-premium: 0 20px 40px -15px rgba(13, 59, 48, 0.08);
-            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-sand);
-            color: var(--text-dark);
+        
+        /* --- DASAR & RESET --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, sans-serif; 
+            background-color: #f8f9fa; 
+            color: #333; 
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             line-height: 1.6;
         }
-
+        
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Merriweather', serif;
-            color: var(--primary-forest);
+            color: #2c529d;
             font-weight: 700;
         }
 
-        .container {
-            width: 100%;
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 0 24px;
+        .container { 
+            width: 95%; 
+            max-width: 1200px; 
+            margin: auto; 
         }
 
         a {
             text-decoration: none;
             color: inherit;
-            transition: var(--transition-smooth);
+            transition: all 0.3s ease;
         }
 
         /* Custom Scrollbar */
@@ -70,31 +52,27 @@
             width: 10px;
         }
         ::-webkit-scrollbar-track {
-            background: var(--bg-sand-dark);
+            background: #f1f5f9;
         }
         ::-webkit-scrollbar-thumb {
-            background: var(--primary-forest);
+            background: #2c529d;
             border-radius: 5px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-gold);
+            background: #1e3a8a;
         }
 
-        /* ==========================================================================
-           2. HEADER & OFFICIAL NAVIGATION (Executive Sticky Navbar)
-           ========================================================================== */
-        
-        /* Information Ticker Bar */
-        .top-info-bar {
-            background: var(--primary-forest);
-            color: #ffffff;
-            font-size: 13px;
+        /* --- 1. TOP BAR --- */
+        .top-bar {
+            background-color: #2c529d; 
+            color: white;
             padding: 8px 0;
-            border-bottom: 2px solid var(--accent-gold);
+            font-size: 12px;
+            border-bottom: 2px solid #1e3a8a;
             position: relative;
             z-index: 100;
         }
-
+        
         .top-bar-content {
             display: flex;
             justify-content: space-between;
@@ -110,8 +88,8 @@
         }
 
         .ticker-badge {
-            background: var(--accent-gold);
-            color: #ffffff;
+            background: #e0f2fe;
+            color: #2c529d;
             padding: 2px 10px;
             font-weight: 700;
             border-radius: 4px;
@@ -138,174 +116,189 @@
             font-weight: 500;
         }
 
-        .top-bar-contacts a:hover {
-            color: var(--accent-gold-light);
+        .top-bar-contacts a {
+            color: #ffffff;
         }
 
-        /* Navbar */
-        .navbar-premium {
-            background: rgba(251, 249, 244, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--card-border);
-            padding: 15px 0;
+        .top-bar-contacts a:hover {
+            color: #cbd5e1;
+        }
+
+        /* --- 2. NAVBAR (Latar Putih, Teks Hitam) --- */
+        .navbar-official {
+            background-color: #ffffff !important; 
+            padding: 10px 0;
             position: sticky;
             top: 0;
-            z-index: 99;
-            transition: var(--transition-smooth);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 1px solid #eeeeee;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-official.scrolled {
+            padding: 5px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
 
-        .navbar-premium.scrolled {
-            padding: 10px 0;
-            box-shadow: 0 10px 30px rgba(13, 59, 48, 0.05);
+        .navbar-content { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
         }
-
-        .navbar-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        
+        .brand-section { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
         }
-
-        .brand-lockup {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        
+        .brand-logo { 
+            height: 50px; 
+            width: auto; 
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
         }
-
-        .logo-pemkab {
-            height: 55px;
-            width: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        
+        .brand-text { 
+            display: flex; 
+            flex-direction: column; 
+            color: #333333; 
         }
-
-        .brand-texts {
-            display: flex;
-            flex-direction: column;
+        
+        .sub-brand { 
+            font-size: 10px; 
+            font-weight: 700; 
+            opacity: 0.8; 
+            letter-spacing: 1px;
+            color: #2c529d;
         }
-
-        .gov-sub-title {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--accent-gold);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        .gov-main-title {
+        
+        .main-brand { 
             font-family: 'Merriweather', serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--primary-forest);
-            line-height: 1.2;
+            font-size: 18px; 
+            font-weight: 800; 
+            line-height: 1.2; 
+            color: #333333;
+        }
+        
+        .asn-logo-img { 
+            height: 35px; 
+            width: auto; 
+            margin-left: 15px; 
+            border-left: 1px solid #dddddd;
+            padding-left: 15px;
         }
 
-        .asn-logo-premium {
-            height: 38px;
-            width: auto;
-            margin-left: 20px;
-            border-left: 1px solid rgba(13, 59, 48, 0.15);
-            padding-left: 20px;
-        }
-
-        /* Navigation Menu */
+        /* Menu Navigasi Sejajar Kesamping */
         .nav-links-wrap {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 20px;
         }
 
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 30px;
+        .nav-menu { 
+            list-style: none; 
+            display: flex; 
+            gap: 10px; 
+            align-items: center; 
+        }
+        
+        .nav-menu li { 
+            position: relative; 
+        } /* Mengunci posisi dropdown agar tidak lari */
+        
+        .nav-menu a { 
+            color: #444444 !important; 
+            text-decoration: none; 
+            font-size: 13px; 
+            font-weight: 600; 
+            padding: 8px 12px; 
+            transition: 0.3s;
+        }
+        
+        .nav-menu a:hover, .nav-menu li.active > a { 
+            color: #2c529d !important;
+            background-color: #f0f4ff; 
+            border-radius: 4px;
         }
 
-        .nav-item {
-            position: relative;
-        }
-
-        .nav-link {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-dark);
-            padding: 8px 0;
-        }
-
-        .nav-link:hover, .nav-item.active .nav-link {
-            color: var(--accent-gold);
-        }
-
-        /* Dropdown Style */
-        .dropdown-menu {
+        /* --- FITUR DROPDOWN MENU NAVIGASI --- */
+        .dropdown-content {
+            display: none;
             position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
+            z-index: 1000;
+            list-style: none; /* Menghilangkan titik bulat hitam */
+            padding: 5px 0;
+            margin: 0;
+            border-radius: 6px;
+            border: 1px solid #eeeeee;
             top: 100%;
             left: 50%;
-            transform: translateX(-50%) translateY(15px);
-            background: #ffffff;
-            border-radius: 8px;
-            border: 1px solid var(--card-border);
-            box-shadow: 0 15px 35px rgba(13, 59, 48, 0.08);
-            padding: 10px 0;
-            min-width: 220px;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition-smooth);
+            transform: translateX(-50%);
         }
-
-        .nav-item:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .dropdown-item {
+        
+        .dropdown-content li { display: block; width: 100%; }
+        
+        .dropdown-content li a {
+            color: #444444 !important;
+            padding: 10px 15px;
+            text-decoration: none;
             display: block;
-            padding: 10px 20px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-dark);
-            transition: var(--transition-smooth);
+            font-size: 13px;
+            font-weight: 500;
+            text-align: left;
+            transition: 0.2s;
+            background: transparent;
         }
-
-        .dropdown-item:hover {
-            background-color: var(--bg-sand);
-            color: var(--accent-gold);
-            padding-left: 25px;
+        
+        .dropdown-content li a:hover {
+            background-color: #f0f4ff !important;
+            color: #2c529d !important;
+            padding-left: 18px;
+        }
+        
+        /* Memunculkan sub-menu saat menu utama disentuh kursor */
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
         .btn-portal-search {
-            background: var(--primary-forest);
+            background: #2c529d;
             color: #ffffff;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: var(--transition-smooth);
+            transition: all 0.3s ease;
         }
 
         .btn-portal-search:hover {
-            background: var(--accent-gold);
+            background: #1e3a8a;
             transform: scale(1.05);
         }
 
         .mobile-toggle {
             display: none;
             font-size: 24px;
-            color: var(--primary-forest);
+            color: #2c529d;
             cursor: pointer;
         }
 
-        /* ==========================================================================
-           3. HERO SLIDER PARALLAX & QUICK ACTION WIDGETS
-           ========================================================================== */
-        .hero-premium-section {
-            position: relative;
-            height: 600px;
-            background: linear-gradient(135deg, rgba(13, 59, 48, 0.85) 0%, rgba(13, 59, 48, 0.5) 100%), 
+        /* --- 3. BANNER UTAMA (Hero Parallax) --- */
+        .hero-slider { 
+            position: relative; 
+            width: 100%; 
+            height: 480px; 
+            overflow: hidden; 
+            background: linear-gradient(135deg, rgba(44, 82, 157, 0.9) 0%, rgba(30, 58, 138, 0.6) 100%), 
                         url('https://lh3.googleusercontent.com/d/1zwbqd59Xk_MWu6kuoN0VJJfOGQiroGqi') no-repeat center center;
             background-size: cover;
             background-attachment: fixed;
@@ -313,64 +306,48 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            overflow: hidden;
-            border-bottom: 5px solid var(--accent-gold);
-        }
-
-        /* Subtle local pattern watermark over hero */
-        .hero-premium-section::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(var(--accent-gold) 0.5px, transparent 0.5px);
-            background-size: 24px 24px;
-            opacity: 0.15;
-            pointer-events: none;
+            border-bottom: 5px solid #2c529d;
         }
 
         .hero-inner-content {
             z-index: 5;
             max-width: 900px;
             padding: 0 20px;
-            margin-top: -30px;
         }
 
         .hero-tagline {
-            background: rgba(217, 119, 6, 0.2);
-            border: 1px solid var(--accent-gold);
-            color: #fcd34d;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
             padding: 6px 16px;
             border-radius: 30px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
             letter-spacing: 2px;
             display: inline-block;
             text-transform: uppercase;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             backdrop-filter: blur(4px);
         }
 
         .hero-inner-content h1 {
             color: #ffffff;
-            font-size: 46px;
+            font-size: 38px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
-            line-height: 1.2;
+            line-height: 1.3;
             margin-bottom: 20px;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .hero-inner-content p {
             color: #f1f5f9;
-            font-size: 18px;
+            font-size: 16px;
             max-width: 750px;
-            margin: 0 auto 35px;
+            margin: 0 auto 30px;
             font-weight: 500;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
         .hero-cta-group {
@@ -380,171 +357,152 @@
         }
 
         .btn-premium {
-            padding: 14px 28px;
-            font-size: 15px;
+            padding: 12px 24px;
+            font-size: 14px;
             font-weight: 700;
             border-radius: 30px;
             display: inline-flex;
             align-items: center;
             gap: 10px;
             cursor: pointer;
-            transition: var(--transition-smooth);
+            transition: all 0.3s ease;
         }
 
         .btn-premium.primary {
-            background: var(--accent-gold);
-            color: #ffffff;
-            box-shadow: 0 10px 20px rgba(217, 119, 6, 0.3);
+            background: #ffffff;
+            color: #2c529d;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
 
         .btn-premium.primary:hover {
-            background: #b45309;
+            background: #f0f4ff;
             transform: translateY(-2px);
-            box-shadow: 0 12px 24px rgba(217, 119, 6, 0.4);
         }
 
         .btn-premium.secondary {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.2);
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(5px);
         }
 
         .btn-premium.secondary:hover {
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
         }
 
-        /* Floating Overlap Widgets Quick-Links */
-        .floating-widgets-section {
-            margin-top: -60px;
-            position: relative;
-            z-index: 20;
-        }
-
-        .widgets-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .widget-card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 15px 35px rgba(13, 59, 48, 0.05);
-            border: 1px solid var(--card-border);
+        /* --- 4. LAYANAN (Grid Sejajar & Icon Bulat) --- */
+        .services-section {
+            padding: 60px 0;
             text-align: center;
-            transition: var(--transition-smooth);
+            background-color: #ffffff;
+            border-bottom: 1px solid #eeeeee;
+        }
+        
+        .services-section h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .services-section p.subtitle {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 20px;
         }
 
-        .widget-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 45px rgba(13, 59, 48, 0.1);
-            border-color: rgba(217, 119, 6, 0.3);
-        }
-
-        .widget-icon-box {
-            background: rgba(13, 59, 48, 0.06);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+        .services-grid {
             display: flex;
-            align-items: center;
             justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .service-box {
+            flex: 1;
+            min-width: 220px;
+            max-width: 260px;
+            text-align: center;
+            padding: 20px 15px;
+            background: #fbfcfe;
+            border: 1px solid #eef2f6;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(44, 82, 157, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #2c529d; 
+            color: white;
+            border-radius: 50%; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin: 0 auto 15px;
-            color: var(--primary-forest);
-            font-size: 24px;
-            transition: var(--transition-smooth);
+            font-size: 26px;
+            box-shadow: 0 4px 10px rgba(44, 82, 157, 0.25);
+            transition: all 0.3s ease;
         }
-
-        .widget-card:hover .widget-icon-box {
-            background: var(--accent-gold);
-            color: #ffffff;
+        
+        .service-box:hover .service-icon {
             transform: rotateY(180deg);
+            background-color: #1e3a8a;
         }
 
-        .widget-card h3 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--primary-forest);
-        }
-
-        .widget-card p {
-            font-size: 13px;
-            color: var(--text-muted);
-        }
+        .service-box h4 { font-size: 15px; font-weight: 700; color: #2c529d; margin-bottom: 8px; }
+        .service-box p { font-size: 13px; color: #666; line-height: 1.5; }
 
         /* ==========================================================================
-           4. EXECUTIVE WELCOME SECTION (Camat & Administration)
+           SAMBUTAN KEPALA WILAYAH (Camat)
            ========================================================================== */
         .executive-welcome-section {
-            padding: 100px 0 80px;
+            padding: 80px 0;
             background: #ffffff;
             position: relative;
-        }
-
-        /* Fine background local craft textures */
-        .executive-welcome-section::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 20px;
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, var(--accent-gold) 1.5px, transparent 1.5px);
-            background-size: 20px 20px;
-            opacity: 0.1;
-            pointer-events: none;
+            border-bottom: 1px solid #eeeeee;
         }
 
         .executive-grid {
             display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 60px;
+            grid-template-columns: 320px 1fr;
+            gap: 50px;
             align-items: center;
         }
 
         .camat-frame-decor {
             position: relative;
-            max-width: 320px;
+            max-width: 300px;
             margin: 0 auto;
         }
 
         .camat-frame-decor::before {
             content: "";
             position: absolute;
-            top: 15px;
-            left: -15px;
+            top: 12px;
+            left: -12px;
             width: 100%;
             height: 100%;
-            border: 2px solid var(--accent-gold);
-            border-radius: 16px;
-            z-index: 1;
-        }
-
-        .camat-frame-decor::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            right: -10px;
-            width: 40px;
-            height: 40px;
-            border-bottom: 4px solid var(--primary-forest);
-            border-right: 4px solid var(--primary-forest);
+            border: 2px solid #2c529d;
+            border-radius: 12px;
             z-index: 1;
         }
 
         .camat-photo {
             width: 100%;
-            height: 420px;
-            border-radius: 16px;
+            height: 380px;
+            border-radius: 12px;
             object-fit: cover;
             position: relative;
             z-index: 2;
-            box-shadow: 0 15px 35px rgba(13, 59, 48, 0.15);
-            border: 5px solid #ffffff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 4px solid #ffffff;
         }
 
         .executive-text h4 {
@@ -552,36 +510,37 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--accent-gold);
+            color: #2c529d;
             margin-bottom: 10px;
         }
 
         .executive-text h2 {
-            font-size: 34px;
+            font-size: 30px;
             margin-bottom: 5px;
             line-height: 1.2;
+            color: #333;
         }
 
         .camat-title {
             display: block;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
-            color: var(--text-muted);
-            margin-bottom: 25px;
+            color: #666;
+            margin-bottom: 20px;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
         .camat-quote-box {
             position: relative;
-            padding-left: 25px;
-            border-left: 4px solid var(--primary-forest);
-            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 4px solid #2c529d;
+            margin-bottom: 25px;
         }
 
         .camat-quote-box p {
-            font-size: 17px;
-            color: var(--text-dark);
+            font-size: 15px;
+            color: #444;
             line-height: 1.8;
             font-style: italic;
         }
@@ -593,46 +552,46 @@
         }
 
         .camat-sign {
-            height: 50px;
+            height: 45px;
             width: auto;
             opacity: 0.85;
         }
 
         .camat-name-tag {
             font-family: 'Merriweather', serif;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
-            color: var(--primary-forest);
+            color: #2c529d;
         }
 
         .camat-nip {
-            font-size: 13px;
-            color: var(--text-muted);
+            font-size: 12px;
+            color: #666;
         }
 
         /* ==========================================================================
-           5. HYDROLOGY ALERT & WEATHER MONITORING WIDGET (Premium Live Info)
+           LIVE HYDROLOGY & WEATHER WIDGETS
            ========================================================================== */
         .live-monitoring-section {
             padding: 60px 0;
-            background: linear-gradient(180deg, #ffffff 0%, var(--bg-sand-dark) 100%);
-            border-top: 1px solid var(--card-border);
+            background: linear-gradient(180deg, #ffffff 0%, #f4f7f9 100%);
+            border-bottom: 1px solid #eeeeee;
         }
 
         .monitoring-wrapper {
             background: #ffffff;
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: var(--shadow-premium);
-            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid #eeeeee;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 30px;
         }
 
         .monitor-card {
-            border-right: 1px solid rgba(13, 59, 48, 0.1);
-            padding-right: 40px;
+            border-right: 1px solid #eef2f6;
+            padding-right: 30px;
         }
 
         .monitor-card:last-child {
@@ -645,23 +604,23 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .monitor-header i {
-            font-size: 28px;
-            color: var(--primary-forest);
+            font-size: 26px;
+            color: #2c529d;
         }
 
         .monitor-header h3 {
-            font-size: 20px;
+            font-size: 18px;
+            color: #2c529d;
         }
 
-        /* Hydrology Wave Animation Widget */
         .river-widget {
-            background: #f0f7f6;
+            background: #f0f5fa;
             border-radius: 12px;
-            padding: 25px;
+            padding: 20px;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -674,36 +633,36 @@
         }
 
         .river-badge {
-            background: #10b981; /* Green safe code */
+            background: #10b981; 
             color: #ffffff;
             padding: 4px 12px;
             font-weight: 700;
             border-radius: 30px;
-            font-size: 12px;
+            font-size: 11px;
             display: inline-block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-transform: uppercase;
         }
 
         .river-badge.siaga {
-            background: var(--accent-gold);
+            background: #ef4444;
         }
 
         .river-level-text {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 800;
-            color: var(--primary-forest);
+            color: #2c529d;
         }
 
         .river-level-desc {
-            font-size: 13px;
-            color: var(--text-muted);
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
         }
 
-        /* Wave Graphic SVG inside */
         .river-wave-graphics {
-            width: 140px;
-            height: 100px;
+            width: 120px;
+            height: 80px;
             position: relative;
         }
 
@@ -715,7 +674,6 @@
             height: 100%;
         }
 
-        /* Weather Panel Widget */
         .weather-panel {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -723,151 +681,152 @@
         }
 
         .weather-main {
-            background: linear-gradient(135deg, var(--primary-forest) 0%, var(--primary-forest-light) 100%);
+            background: linear-gradient(135deg, #2c529d 0%, #1e3a8a 100%);
             color: #ffffff;
             border-radius: 12px;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
         }
 
         .weather-main i {
-            font-size: 42px;
-            color: var(--accent-gold);
-            margin-bottom: 10px;
+            font-size: 36px;
+            color: #38bdf8;
+            margin-bottom: 8px;
         }
 
         .weather-temp {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 800;
             line-height: 1;
+            margin-bottom: 5px;
         }
 
         .weather-stats {
             background: #f8fafc;
             border-radius: 12px;
-            padding: 15px 20px;
+            padding: 15px;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            border: 1px solid rgba(0,0,0,0.03);
+            border: 1px solid #eef2f6;
         }
 
         .stat-line {
             display: flex;
             justify-content: space-between;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            color: var(--text-muted);
+            color: #666;
         }
 
         .stat-line span.val {
             font-weight: 700;
-            color: var(--primary-forest);
+            color: #2c529d;
         }
 
         /* ==========================================================================
-           6. INTERACTIVE GIS & 14 VILLAGES EXPLORER (Highlight Feature)
+           INTERACTIVE GIS & 14 VILLAGES EXPLORER
            ========================================================================== */
         .gis-villages-section {
-            padding: 100px 0;
-            background: var(--bg-sand-dark);
+            padding: 80px 0;
+            background: #f4f7f9;
+            border-bottom: 1px solid #eeeeee;
         }
 
         .section-headline {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 60px;
+            margin: 0 auto 50px;
         }
 
         .section-headline h5 {
-            font-size: 13px;
+            font-size: 12px;
             text-transform: uppercase;
-            color: var(--accent-gold);
+            color: #2c529d;
             letter-spacing: 2px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .section-headline h2 {
-            font-size: 36px;
-            margin-bottom: 15px;
+            font-size: 30px;
+            margin-bottom: 10px;
         }
 
         .section-headline p {
-            font-size: 16px;
-            color: var(--text-muted);
+            font-size: 14px;
+            color: #666;
         }
 
         .gis-dashboard-layout {
             display: grid;
-            grid-template-columns: 380px 1fr;
-            gap: 30px;
-            height: 500px;
+            grid-template-columns: 350px 1fr;
+            gap: 25px;
+            height: 480px;
         }
 
-        /* Village Selector Side List */
         .village-side-menu {
             background: #ffffff;
-            border-radius: 16px;
-            border: 1px solid var(--card-border);
-            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #eeeeee;
+            padding: 15px;
             overflow-y: auto;
-            box-shadow: 0 10px 30px rgba(13, 59, 48, 0.03);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
 
         .village-side-menu h3 {
-            font-size: 16px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--bg-sand-dark);
-            padding-bottom: 10px;
+            font-size: 15px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #f4f7f9;
+            padding-bottom: 8px;
+            color: #2c529d;
         }
 
         .village-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
         }
 
         .village-btn {
             width: 100%;
             text-align: left;
-            background: var(--bg-sand);
-            border: 1px solid var(--card-border);
-            padding: 12px 16px;
-            border-radius: 8px;
-            font-size: 14px;
+            background: #f8fafc;
+            border: 1px solid #eef2f6;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 13px;
             font-weight: 600;
-            color: var(--text-dark);
+            color: #444;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: var(--transition-smooth);
+            transition: all 0.3s ease;
         }
 
         .village-btn i {
-            font-size: 12px;
-            color: var(--text-muted);
-            transition: var(--transition-smooth);
+            font-size: 11px;
+            color: #888;
+            transition: all 0.3s ease;
         }
 
         .village-btn:hover, .village-btn.active {
-            background: var(--primary-forest);
+            background: #2c529d;
             color: #ffffff;
-            border-color: var(--primary-forest);
+            border-color: #2c529d;
         }
 
         .village-btn:hover i, .village-btn.active i {
-            color: var(--accent-gold);
+            color: #ffffff;
             transform: translateX(3px);
         }
 
-        /* Dynamic Map & Info Screen Frame */
         .gis-visual-screen {
             background: #ffffff;
-            border-radius: 16px;
-            border: 1px solid var(--card-border);
-            box-shadow: 0 15px 35px rgba(13, 59, 48, 0.05);
+            border-radius: 12px;
+            border: 1px solid #eeeeee;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
             display: grid;
             grid-template-columns: 1.2fr 1fr;
             overflow: hidden;
@@ -875,15 +834,14 @@
 
         .gis-map-frame {
             position: relative;
-            background: #f0ede4;
+            background: #eaeff5;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            border-right: 1px solid var(--card-border);
+            border-right: 1px solid #eeeeee;
         }
 
-        /* Mock Vector Map Concept Visual */
         .mock-map-elements {
             width: 90%;
             height: 90%;
@@ -893,32 +851,32 @@
 
         .map-river-line {
             stroke: #4fa1c7;
-            stroke-width: 14px;
+            stroke-width: 12px;
             fill: none;
             stroke-linecap: round;
         }
 
         .map-region-point {
             position: absolute;
-            background: var(--accent-gold);
+            background: #2c529d;
             width: 14px;
             height: 14px;
             border-radius: 50%;
             border: 3px solid #ffffff;
             cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: var(--transition-smooth);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+            transition: all 0.3s ease;
         }
 
         .map-region-point:hover, .map-region-point.active {
             transform: scale(1.4);
-            background: var(--primary-forest);
-            box-shadow: 0 0 15px rgba(13, 59, 48, 0.6);
+            background: #ef4444;
+            box-shadow: 0 0 12px rgba(239, 68, 68, 0.6);
         }
 
         .map-region-label {
             position: absolute;
-            background: rgba(13, 59, 48, 0.85);
+            background: rgba(44, 82, 157, 0.9);
             color: #ffffff;
             font-size: 9px;
             font-weight: 700;
@@ -929,105 +887,106 @@
             pointer-events: none;
         }
 
-        /* Dynamic Info Block on Selected Village */
         .village-details-panel {
-            padding: 30px;
+            padding: 25px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            background: linear-gradient(135deg, #ffffff 0%, var(--bg-sand) 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
         }
 
         .village-card-header {
-            border-bottom: 2px dashed rgba(13, 59, 48, 0.1);
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+            border-bottom: 2px dashed #eef2f6;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .village-card-header h3 {
-            font-size: 24px;
-            color: var(--primary-forest);
+            font-size: 20px;
+            color: #2c529d;
         }
 
         .village-card-header p {
-            font-size: 13px;
-            color: var(--accent-gold);
+            font-size: 11px;
+            color: #555;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-top: 2px;
         }
 
         .v-details-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .v-details-item {
             display: flex;
             justify-content: space-between;
-            font-size: 14px;
-            border-bottom: 1px solid rgba(13, 59, 48, 0.05);
-            padding-bottom: 8px;
+            font-size: 13px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 6px;
         }
 
         .v-details-item span.label {
             font-weight: 500;
-            color: var(--text-muted);
+            color: #666;
         }
 
         .v-details-item span.value {
             font-weight: 700;
-            color: var(--primary-forest);
+            color: #2c529d;
         }
 
         .v-map-route-btn {
-            background: var(--primary-forest);
+            background: #2c529d;
             color: #ffffff;
-            padding: 12px;
+            padding: 10px;
             text-align: center;
-            border-radius: 8px;
+            border-radius: 6px;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-            transition: var(--transition-smooth);
+            gap: 8px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
         }
 
         .v-map-route-btn:hover {
-            background: var(--accent-gold);
+            background: #1e3a8a;
         }
 
         /* ==========================================================================
-           7. TRANSPARENCY & CITIZEN STATISTICS SECTION
+           TRANSPARENCY SECTION
            ========================================================================== */
         .transparency-section {
-            padding: 100px 0;
+            padding: 80px 0;
             background: #ffffff;
             position: relative;
+            border-bottom: 1px solid #eeeeee;
         }
 
         .transparency-grid {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
-            gap: 60px;
+            gap: 50px;
             align-items: center;
         }
 
         .visual-charts-card {
-            background: var(--bg-sand);
-            border-radius: 20px;
-            padding: 35px;
-            border: 1px solid var(--card-border);
-            box-shadow: var(--shadow-premium);
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid #eeeeee;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
 
         .chart-row {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .chart-row:last-child {
@@ -1037,55 +996,54 @@
         .chart-info {
             display: flex;
             justify-content: space-between;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--primary-forest);
+            margin-bottom: 6px;
+            color: #2c529d;
         }
 
         .chart-bar-bg {
             background: #e2e8f0;
-            height: 12px;
+            height: 10px;
             border-radius: 10px;
             overflow: hidden;
             position: relative;
         }
 
         .chart-bar-fill {
-            background: var(--accent-gold);
+            background: #2c529d;
             height: 100%;
             border-radius: 10px;
-            width: 0%; /* Animated via trigger */
+            width: 0%; /* Animated via JS trigger */
             transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .chart-bar-fill.satisfied {
-            background: var(--primary-forest);
+            background: #3b82f6;
         }
 
         .transparency-desc h5 {
-            font-size: 13px;
-            color: var(--accent-gold);
+            font-size: 12px;
+            color: #2c529d;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .transparency-desc h2 {
-            font-size: 34px;
-            margin-bottom: 20px;
+            font-size: 28px;
+            margin-bottom: 15px;
         }
 
         .transparency-desc p {
-            font-size: 16px;
-            color: var(--text-muted);
-            margin-bottom: 30px;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 25px;
         }
 
-        /* Counter numbers badge metrics */
         .metrics-block {
             display: flex;
-            gap: 30px;
+            gap: 25px;
         }
 
         .metric-item {
@@ -1094,204 +1052,218 @@
 
         .metric-number {
             font-family: 'Merriweather', serif;
-            font-size: 38px;
+            font-size: 34px;
             font-weight: 700;
-            color: var(--primary-forest);
+            color: #2c529d;
             line-height: 1;
             margin-bottom: 5px;
         }
 
         .metric-label {
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 700;
-            color: var(--text-muted);
+            color: #666;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* ==========================================================================
-           8. OFFICIAL NEWS & PRESS SECTION (Masonry Layout)
-           ========================================================================== */
-        .news-press-section {
-            padding: 100px 0;
-            background: var(--bg-sand);
+        /* --- 5. GRID BERITA (Tampilan Kartu Sejajar) --- */
+        .news-grid-section { 
+            padding: 80px 0; 
+            background-color: #f4f7f9; 
+            border-bottom: 1px solid #eeeeee;
         }
-
-        .news-header-split {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 50px;
+        
+        .section-header { 
+            margin-bottom: 40px; 
+            text-align: center; 
         }
-
-        .news-header-split h2 {
-            font-size: 34px;
+        
+        .section-header h3 { 
+            color: #2c529d; 
+            font-size: 28px; 
+            font-weight: 700; 
+            margin-bottom: 8px;
         }
-
-        .news-header-split .btn-premium {
-            padding: 10px 24px;
+        
+        .section-header p {
             font-size: 14px;
+            color: #666;
         }
 
-        .news-grid-custom {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+        .news-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
         }
-
-        .premium-news-card {
-            background: #ffffff;
-            border-radius: 16px;
-            border: 1px solid var(--card-border);
+        
+        .news-item {
+            background: #fff;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(13, 59, 48, 0.03);
-            transition: var(--transition-smooth);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            width: 320px; 
+            border: 1px solid #eeeeee;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+        
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(44, 82, 157, 0.12);
+            border-color: #cbd5e1;
         }
 
-        .premium-news-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-premium);
-            border-color: rgba(13, 59, 48, 0.15);
-        }
-
-        .card-img-box {
+        .news-img {
             position: relative;
-            height: 220px;
-            overflow: hidden;
         }
 
-        .card-img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition-smooth);
+        .news-img img { 
+            width: 100%; 
+            height: 180px; 
+            object-fit: cover; 
+            transition: all 0.3s ease;
         }
-
-        .premium-news-card:hover .card-img-box img {
+        
+        .news-item:hover .news-img img {
             transform: scale(1.05);
         }
 
         .category-badge {
             position: absolute;
-            bottom: 15px;
-            left: 15px;
-            background: var(--primary-forest);
+            bottom: 12px;
+            left: 12px;
+            background: #2c529d;
             color: #ffffff;
-            padding: 4px 12px;
-            font-size: 11px;
+            padding: 3px 10px;
+            font-size: 10px;
             font-weight: 700;
             border-radius: 4px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
-        .card-body-box {
-            padding: 25px;
+        .news-info { 
+            padding: 20px; 
+            flex-grow: 1; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
         }
-
-        .card-meta-line {
+        
+        .news-meta {
             display: flex;
-            gap: 15px;
-            font-size: 12px;
-            color: var(--text-muted);
-            font-weight: 600;
-            margin-bottom: 12px;
+            gap: 12px;
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 8px;
         }
 
-        .card-meta-line span i {
-            margin-right: 5px;
-            color: var(--accent-gold);
+        .news-meta span i {
+            margin-right: 4px;
+            color: #2c529d;
         }
 
-        .card-body-box h3 {
-            font-size: 18px;
+        .news-info h4 { 
+            font-size: 15px; 
+            color: #2c529d; 
+            margin-bottom: 8px; 
+            font-weight: 700; 
             line-height: 1.4;
-            margin-bottom: 12px;
-            transition: var(--transition-smooth);
+            transition: all 0.3s ease;
+        }
+        
+        .news-item:hover .news-info h4 {
+            color: #1e3a8a;
         }
 
-        .premium-news-card:hover .card-body-box h3 {
-            color: var(--accent-gold);
+        .news-info p { 
+            font-size: 12px; 
+            color: #666; 
+            margin-bottom: 15px; 
+            line-height: 1.6;
         }
-
-        .card-body-box p {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+        
+        .news-footer-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 10px;
+            margin-top: auto;
         }
 
         .btn-card-read {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
-            color: var(--primary-forest);
+            color: #2c529d;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .btn-card-read i {
-            transition: var(--transition-smooth);
+            transition: all 0.3s ease;
         }
 
-        .premium-news-card:hover .btn-card-read i {
+        .news-item:hover .btn-card-read i {
             transform: translateX(4px);
-            color: var(--accent-gold);
         }
+
+        .news-date { font-size: 11px; color: #999; }
 
         /* ==========================================================================
-           9. LOCAL ECONOMY & CULTURAL SHOWCASE (Rotan & Nature Potentials)
+           POTENSI UNGGULAN KECAMATAN
            ========================================================================== */
         .cultural-spotlight-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--primary-forest) 0%, var(--primary-forest-light) 100%);
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2c529d 0%, #1e3a8a 100%);
             color: #ffffff;
             position: relative;
             overflow: hidden;
+            border-bottom: 1px solid #eeeeee;
         }
 
-        /* Glowing light graphic overlay */
         .cultural-spotlight-section::before {
             content: '';
             position: absolute;
-            top: -200px;
-            right: -200px;
-            width: 500px;
-            height: 500px;
-            background: rgba(217, 119, 6, 0.15);
+            top: -150px;
+            right: -150px;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
-            filter: blur(100px);
+            filter: blur(80px);
             pointer-events: none;
         }
 
         .cultural-grid {
             display: grid;
             grid-template-columns: 0.9fr 1.1fr;
-            gap: 60px;
+            gap: 50px;
             align-items: center;
         }
 
         .cultural-text h5 {
-            color: var(--accent-gold-light);
-            font-size: 13px;
+            color: #93c5fd;
+            font-size: 12px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .cultural-text h2 {
             color: #ffffff;
-            font-size: 34px;
-            margin-bottom: 20px;
+            font-size: 30px;
+            margin-bottom: 15px;
         }
 
         .cultural-text p {
             color: #cbd5e1;
-            font-size: 16px;
-            margin-bottom: 30px;
+            font-size: 14px;
+            margin-bottom: 25px;
         }
 
         .cultural-features-list {
@@ -1304,24 +1276,24 @@
         .cult-feat-item {
             display: flex;
             align-items: flex-start;
-            gap: 15px;
+            gap: 12px;
         }
 
         .cult-feat-item i {
-            color: var(--accent-gold-light);
-            font-size: 20px;
+            color: #93c5fd;
+            font-size: 18px;
             margin-top: 3px;
         }
 
         .cult-feat-item h4 {
             color: #ffffff;
-            font-size: 16px;
-            margin-bottom: 3px;
+            font-size: 15px;
+            margin-bottom: 2px;
         }
 
         .cult-feat-item p {
-            color: #94a3b8;
-            font-size: 13px;
+            color: #cbd5e1;
+            font-size: 12px;
             margin-bottom: 0;
         }
 
@@ -1332,13 +1304,13 @@
         }
 
         .cult-img-frame {
-            border: 8px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            border: 6px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
             overflow: hidden;
             width: 100%;
-            max-width: 500px;
-            height: 380px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            max-width: 450px;
+            height: 320px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
 
         .cult-img-frame img {
@@ -1347,68 +1319,67 @@
             object-fit: cover;
         }
 
-        /* Floating tag over visual */
         .cult-floating-tag {
             position: absolute;
-            bottom: -20px;
+            bottom: -15px;
             left: 20px;
-            background: var(--accent-gold);
-            color: #ffffff;
-            padding: 15px 25px;
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            background: #ffffff;
+            color: #2c529d;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
             font-weight: 700;
-            font-size: 14px;
+            font-size: 13px;
+            border-left: 4px solid #2c529d;
         }
 
-        /* ==========================================================================
-           10. PREMIUM INSTITUTIONAL FOOTER
-           ========================================================================== */
-        footer {
-            background: #061c16; /* Extra dark forest tone */
-            color: #94a3b8;
-            padding: 80px 0 40px;
-            border-top: 3px solid var(--accent-gold);
-            font-size: 14px;
+        /* --- 6. FOOTER --- */
+        footer { 
+            background: #1e293b; 
+            color: #94a3b8; 
+            text-align: left; 
+            padding: 60px 0 30px; 
+            font-size: 13px; 
+            border-top: 4px solid #2c529d;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr 1fr;
-            gap: 50px;
-            margin-bottom: 50px;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
         .footer-brand h2 {
             color: #ffffff;
-            font-size: 22px;
-            margin-bottom: 10px;
+            font-size: 20px;
+            margin-bottom: 12px;
         }
 
         .footer-brand p {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             line-height: 1.6;
         }
 
         .social-links {
             display: flex;
-            gap: 12px;
+            gap: 10px;
         }
 
         .social-btn {
-            width: 36px;
-            height: 36px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
             color: #ffffff;
-            transition: var(--transition-smooth);
+            transition: all 0.3s ease;
         }
 
         .social-btn:hover {
-            background: var(--accent-gold);
+            background: #2c529d;
             color: #ffffff;
             transform: translateY(-3px);
         }
@@ -1416,9 +1387,9 @@
         .footer-title {
             font-family: 'Merriweather', serif;
             color: #ffffff;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             position: relative;
             padding-bottom: 8px;
         }
@@ -1428,38 +1399,44 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 40px;
+            width: 35px;
             height: 2px;
-            background: var(--accent-gold);
+            background: #2c529d;
         }
 
         .footer-links {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: var(--accent-gold-light);
+            color: #ffffff;
             padding-left: 5px;
         }
 
         .contact-box-footer {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
         .footer-contact-item {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             align-items: flex-start;
         }
 
         .footer-contact-item i {
-            color: var(--accent-gold);
-            font-size: 18px;
+            color: #2c529d;
+            font-size: 16px;
             margin-top: 3px;
         }
 
@@ -1470,28 +1447,15 @@
 
         .copyright-bar {
             border-top: 1px solid rgba(255, 255, 255, 0.06);
-            padding-top: 30px;
+            padding-top: 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-size: 12px;
         }
 
         .copyright-bar p {
             margin: 0;
-        }
-
-        /* ==========================================================================
-           11. INTERACTIVE POP-UP & SCROLL ANIMATION EFFECTS
-           ========================================================================== */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .scroll-reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         /* Search Popup Overlay */
@@ -1501,14 +1465,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(13, 59, 48, 0.95);
-            z-index: 999;
+            background: rgba(30, 58, 138, 0.95);
+            z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
             visibility: hidden;
-            transition: var(--transition-smooth);
+            transition: all 0.3s ease;
         }
 
         .search-overlay-fullscreen.active {
@@ -1523,11 +1487,11 @@
             color: #ffffff;
             font-size: 30px;
             cursor: pointer;
-            transition: var(--transition-smooth);
+            transition: all 0.3s ease;
         }
 
         .close-search:hover {
-            color: var(--accent-gold);
+            color: #ef4444;
         }
 
         .search-input-box {
@@ -1569,7 +1533,7 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: var(--accent-gold);
+            background: #2c529d;
             color: #ffffff;
             width: 45px;
             height: 45px;
@@ -1578,11 +1542,11 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
             opacity: 0;
             visibility: hidden;
             z-index: 90;
-            transition: var(--transition-smooth);
+            transition: all 0.3s ease;
         }
 
         .btn-back-to-top.show {
@@ -1591,74 +1555,70 @@
         }
 
         .btn-back-to-top:hover {
-            background: var(--primary-forest);
+            background: #1e3a8a;
             transform: translateY(-5px);
         }
 
-        /* Responsive Breakpoints */
-        @media (max-width: 1024px) {
-            .widgets-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .executive-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .monitoring-wrapper {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            .monitor-card {
-                border-right: none;
-                padding-right: 0;
-                border-bottom: 1px solid rgba(13, 59, 48, 0.1);
-                padding-bottom: 30px;
-            }
-            .gis-dashboard-layout {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-            .gis-visual-screen {
-                grid-template-columns: 1fr;
-                height: 500px;
-            }
-            .transparency-grid {
-                grid-template-columns: 1fr;
-            }
-            .news-grid-custom {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .cultural-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
+        /* Scroll Reveal Effect class */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE (Untuk Akses HP) */
+        @media (max-width: 992px) {
+            .navbar-content { flex-direction: column; gap: 15px; text-align: center; }
+            .brand-section { flex-direction: column; gap: 10px; }
+            .asn-logo-img { border-left: none; padding-left: 0; margin-left: 0; }
+            .nav-links-wrap { width: 100%; justify-content: center; margin-top: 10px; }
+            .nav-menu { width: 100%; justify-content: center; flex-wrap: wrap; }
+            
+            .hero-slider { height: auto; padding: 100px 0; }
+            .hero-inner-content h1 { font-size: 28px; }
+            
+            .executive-grid { grid-template-columns: 1fr; gap: 30px; }
+            .monitoring-wrapper { grid-template-columns: 1fr; }
+            .monitor-card { border-right: none; padding-right: 0; border-bottom: 1px solid #eeeeee; padding-bottom: 25px; }
+            .monitor-card:last-child { border-bottom: none; padding-bottom: 0; padding-left: 0; }
+            
+            .gis-dashboard-layout { grid-template-columns: 1fr; height: auto; }
+            .gis-visual-screen { grid-template-columns: 1fr; height: 400px; }
+            
+            .transparency-grid { grid-template-columns: 1fr; gap: 30px; }
+            .cultural-grid { grid-template-columns: 1fr; }
+            
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .copyright-bar { flex-direction: column; gap: 10px; text-align: center; }
         }
 
         @media (max-width: 768px) {
-            .gov-main-title {
-                font-size: 16px;
+            .top-bar-content { flex-direction: column; gap: 8px; text-align: center; }
+            .ticker-wrap { max-width: 100%; }
+            .nav-menu { display: none; } /* Terkontrol tombol burger di HP */
+            .mobile-toggle { display: block; }
+            .nav-menu.show {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                padding: 15px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                border-top: 1px solid #eeeeee;
+                gap: 5px;
             }
-            .asn-logo-premium {
-                display: none;
-            }
-            .nav-menu {
-                display: none; /* Controlled by mobile script */
-            }
-            .mobile-toggle {
-                display: block;
-            }
-            .hero-inner-content h1 {
-                font-size: 32px;
-            }
-            .widgets-grid {
-                grid-template-columns: 1fr;
-            }
-            .news-grid-custom {
-                grid-template-columns: 1fr;
-            }
+            .nav-menu.show li { width: 100%; text-align: left; }
+            .nav-menu.show a { display: block; width: 100%; }
+            .dropdown-content { position: static; transform: none; box-shadow: none; border: none; padding-left: 15px; display: none; }
+            .dropdown:hover .dropdown-content { display: block; }
         }
     </style>
 </head>
@@ -1667,7 +1627,7 @@
     <!-- ==========================================================================
        TOP INFORMATION & NEWS TICKER BAR
        ========================================================================== -->
-    <div class="top-info-bar">
+    <div class="top-bar">
         <div class="container top-bar-content">
             <div class="ticker-wrap">
                 <span class="ticker-badge">INFO UTAMA</span>
@@ -1683,41 +1643,41 @@
     </div>
 
     <!-- ==========================================================================
-       NAVIGATION MENU
+       NAVIGATION MENU (Latar Putih, Teks Hitam)
        ========================================================================== -->
-    <nav class="navbar-premium" id="officialNavbar">
-        <div class="container navbar-container">
-            <div class="brand-lockup">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Lambang_Kabupaten_Pulang_Pisau.webp" alt="Logo Pulang Pisau" class="logo-pemkab">
-                <div class="brand-texts">
-                    <span class="gov-sub-title">PEMERINTAH KABUPATEN PULANG PISAU</span>
-                    <span class="gov-main-title">Kecamatan Kahayan Tengah</span>
+    <nav class="navbar-official" id="officialNavbar">
+        <div class="container navbar-content">
+            <div class="brand-section">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Lambang_Kabupaten_Pulang_Pisau.webp" alt="Logo Pulang Pisau" class="brand-logo">
+                <div class="brand-text">
+                    <span class="sub-brand">PEMERINTAH KABUPATEN PULANG PISAU</span>
+                    <span class="main-brand">Kecamatan Kahayan Tengah</span>
                 </div>
-                <img src="https://lh3.googleusercontent.com/d/1Eq4RLbS1WvaaEh3Z0G9TI7s0G58yRImN" alt="Logo Berakhlak" class="asn-logo-premium">
+                <img src="https://lh3.googleusercontent.com/d/1Eq4RLbS1WvaaEh3Z0G9TI7s0G58yRImN" alt="Logo Berakhlak" class="asn-logo-img">
             </div>
 
             <div class="nav-links-wrap">
                 <ul class="nav-menu" id="navMenu">
-                    <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Profil <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
-                        <div class="dropdown-menu">
-                            <a href="#" class="dropdown-item">Sejarah &amp; Wilayah</a>
-                            <a href="#" class="dropdown-item">Visi &amp; Misi</a>
-                            <a href="#" class="dropdown-item">Struktur Organisasi</a>
-                            <a href="#" class="dropdown-item">Daftar Pejabat</a>
-                        </div>
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Profil <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Sejarah &amp; Wilayah</a></li>
+                            <li><a href="#">Visi &amp; Misi</a></li>
+                            <li><a href="#">Struktur Organisasi</a></li>
+                            <li><a href="#">Daftar Pejabat</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Pelayanan <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
-                        <div class="dropdown-menu">
-                            <a href="#" class="dropdown-item">Administrasi Kependudukan</a>
-                            <a href="#" class="dropdown-item">Surat Rekomendasi</a>
-                            <a href="#" class="dropdown-item">Alur Pengaduan</a>
-                        </div>
+                    <li class="dropdown">
+                        <a href="#">Pelayanan <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Administrasi Kependudukan</a></li>
+                            <li><a href="#">Surat Rekomendasi</a></li>
+                            <li><a href="#">Alur Pengaduan</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item"><a href="#" class="nav-link">Agenda</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Galeri</a></li>
+                    <li><a href="#">Agenda</a></li>
+                    <li><a href="#">Galeri</a></li>
                 </ul>
                 <button class="btn-portal-search" id="searchTriggerBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 <div class="mobile-toggle" id="mobileMenuToggleBtn"><i class="fa-solid fa-bars"></i></div>
@@ -1726,9 +1686,9 @@
     </nav>
 
     <!-- ==========================================================================
-       HERO SLIDER PARALLAX
+       HERO / BANNER UTAMA
        ========================================================================== -->
-    <section class="hero-premium-section">
+    <section class="hero-slider">
         <div class="hero-inner-content">
             <span class="hero-tagline">Portal Gerbang Digital Daerah</span>
             <h1>Pusat Informasi &amp; Layanan Publik<br>Kecamatan Kahayan Tengah</h1>
@@ -1741,29 +1701,32 @@
     </section>
 
     <!-- ==========================================================================
-       FLOATING ACTION CARD WIDGETS
+       4. LAYANAN (Grid Sejajar & Icon Bulat)
        ========================================================================== -->
-    <section class="floating-widgets-section scroll-reveal" id="e-layanan">
+    <section class="services-section scroll-reveal" id="e-layanan">
         <div class="container">
-            <div class="widgets-grid">
-                <div class="widget-card">
-                    <div class="widget-icon-box"><i class="fa-solid fa-id-card"></i></div>
-                    <h3>Kependudukan</h3>
+            <h2>Layanan Publik Digital</h2>
+            <p class="subtitle">Akses cepat sistem birokrasi, pengurusan surat menyurat, dan pengaduan</p>
+            
+            <div class="services-grid">
+                <div class="service-box">
+                    <div class="service-icon"><i class="fa-solid fa-id-card"></i></div>
+                    <h4>Kependudukan</h4>
                     <p>Cek alur pengurusan KTP, KK, Kartu Identitas Anak, hingga Surat Mutasi.</p>
                 </div>
-                <div class="widget-card">
-                    <div class="widget-icon-box"><i class="fa-solid fa-handshake-angle"></i></div>
-                    <h3>Layanan Sosial</h3>
+                <div class="service-box">
+                    <div class="service-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+                    <h4>Layanan Sosial</h4>
                     <p>Informasi penyaluran bantuan pemerintah daerah dan jaminan sosial nasional.</p>
                 </div>
-                <div class="widget-card">
-                    <div class="widget-icon-box"><i class="fa-solid fa-scale-balanced"></i></div>
-                    <h3>Transparansi Regu</h3>
+                <div class="service-box">
+                    <div class="service-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h4>Transparansi Hukum</h4>
                     <p>Unduh produk keputusan hukum daerah, Peraturan Bupati, hingga keputusan Camat.</p>
                 </div>
-                <div class="widget-card">
-                    <div class="widget-icon-box"><i class="fa-solid fa-bullhorn"></i></div>
-                    <h3>Kotak Pengaduan</h3>
+                <div class="service-box">
+                    <div class="service-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                    <h4>Kotak Pengaduan</h4>
                     <p>Sampaikan kritik, saran, atau aduan fasilitas publik lewat saluran digital.</p>
                 </div>
             </div>
@@ -1813,7 +1776,7 @@
                         <i class="fa-solid fa-droplet"></i>
                         <div>
                             <h3>Status Ketinggian Air Sungai Kahayan</h3>
-                            <p style="font-size: 13px; color: var(--text-muted);">Terintegrasi otomatis dengan sistem hidrologi pos pengamatan</p>
+                            <p style="font-size: 13px; color: #666;">Terintegrasi otomatis dengan sistem hidrologi pos pengamatan</p>
                         </div>
                     </div>
                     <div class="river-widget">
@@ -1842,14 +1805,14 @@
                         <i class="fa-solid fa-cloud-sun-rain"></i>
                         <div>
                             <h3>Kondisi Cuaca Hari Ini</h3>
-                            <p style="font-size: 13px; color: var(--text-muted);">Prakiraan Wilayah Kecamatan Kahayan Tengah</p>
+                            <p style="font-size: 13px; color: #666;">Prakiraan Wilayah Kecamatan Kahayan Tengah</p>
                         </div>
                     </div>
                     <div class="weather-panel">
                         <div class="weather-main">
                             <i class="fa-solid fa-cloud-showers-water"></i>
                             <div class="weather-temp">29°C</div>
-                            <span style="font-size: 13px; font-weight: 700; text-transform: uppercase;">Hujan Ringan</span>
+                            <span style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Hujan Ringan</span>
                         </div>
                         <div class="weather-stats">
                             <div class="stat-line">
@@ -2007,68 +1970,74 @@
     </section>
 
     <!-- ==========================================================================
-       OFFICIAL PRESS & RECENT NEWS
+       5. GRID BERITA (Tampilan Kartu Sejajar)
        ========================================================================== -->
-    <section class="news-press-section scroll-reveal">
+    <section class="news-grid-section scroll-reveal">
         <div class="container">
-            <div class="news-header-split">
-                <div>
-                    <h5 style="color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase; font-size: 13px; font-weight: 700; margin-bottom: 5px;">KABAR TERKINI</h5>
-                    <h2>Pemberitaan &amp; Siaran Pers Resmi</h2>
-                </div>
-                <a href="#" class="btn-premium primary">Lihat Semua Berita <i class="fa-solid fa-newspaper"></i></a>
+            <div class="section-header">
+                <h3>Kabar Terkini &amp; Siaran Pers Resmi</h3>
+                <p>Pantau dinamika kemajuan wilayah pembangunan, kegiatan camat, dan informasi regulasi terupdate</p>
             </div>
 
-            <div class="news-grid-custom">
+            <div class="news-grid">
                 
                 <!-- Card news 1 -->
-                <div class="premium-news-card">
-                    <div class="card-img-box">
+                <div class="news-item">
+                    <div class="news-img">
                         <img src="https://lh3.googleusercontent.com/d/1zwbqd59Xk_MWu6kuoN0VJJfOGQiroGqi" alt="Pembangunan Jalan">
                         <span class="category-badge">Infrastruktur</span>
                     </div>
-                    <div class="card-body-box">
-                        <div class="card-meta-line">
+                    <div class="news-info">
+                        <div class="news-meta">
                             <span><i class="fa-solid fa-calendar"></i> 24 Mei 2026</span>
                             <span><i class="fa-solid fa-clock"></i> 3 mnt baca</span>
                         </div>
-                        <h3>Koordinasi Penanganan Jalan Poros Bukit Liti - Bukit Rawi</h3>
+                        <h4>Koordinasi Penanganan Jalan Poros Bukit Liti - Bukit Rawi</h4>
                         <p>Muspika menggelar koordinasi perbaikan titik amblas jalan raya utama penghubung antar desa...</p>
-                        <a href="#" class="btn-card-read">Baca Selengkapnya <i class="fa-solid fa-chevron-right"></i></a>
+                        <div class="news-footer-line">
+                            <span class="news-date">Mei 2026</span>
+                            <a href="#" class="btn-card-read">Baca <i class="fa-solid fa-chevron-right"></i></a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Card news 2 -->
-                <div class="premium-news-card">
-                    <div class="card-img-box">
+                <div class="news-item">
+                    <div class="news-img">
                         <img src="https://lh3.googleusercontent.com/d/1zwbqd59Xk_MWu6kuoN0VJJfOGQiroGqi" alt="Rapat Stunting">
                         <span class="category-badge">Kesehatan</span>
                     </div>
-                    <div class="card-body-box">
-                        <div class="card-meta-line">
+                    <div class="news-info">
+                        <div class="news-meta">
                             <span><i class="fa-solid fa-calendar"></i> 22 Mei 2026</span>
                             <span><i class="fa-solid fa-clock"></i> 4 mnt baca</span>
                         </div>
-                        <h3>Rembuk Stunting Kecamatan Guna Optimalkan Posyandu Desa</h3>
+                        <h4>Rembuk Stunting Kecamatan Guna Optimalkan Posyandu Desa</h4>
                         <p>Langkah preventif pencegahan perlambatan pertumbuhan balita (Stunting) dijalankan secara masif...</p>
-                        <a href="#" class="btn-card-read">Baca Selengkapnya <i class="fa-solid fa-chevron-right"></i></a>
+                        <div class="news-footer-line">
+                            <span class="news-date">Mei 2026</span>
+                            <a href="#" class="btn-card-read">Baca <i class="fa-solid fa-chevron-right"></i></a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Card news 3 -->
-                <div class="premium-news-card">
-                    <div class="card-img-box">
+                <div class="news-item">
+                    <div class="news-img">
                         <img src="https://lh3.googleusercontent.com/d/1zwbqd59Xk_MWu6kuoN0VJJfOGQiroGqi" alt="Seni Dayak">
                         <span class="category-badge">Kebudayaan</span>
                     </div>
-                    <div class="card-body-box">
-                        <div class="card-meta-line">
+                    <div class="news-info">
+                        <div class="news-meta">
                             <span><i class="fa-solid fa-calendar"></i> 18 Mei 2026</span>
                             <span><i class="fa-solid fa-clock"></i> 5 mnt baca</span>
                         </div>
-                        <h3>Eksibisi Seni Tari Adat Dayak di Arena Bukit Rawi</h3>
+                        <h4>Eksibisi Seni Tari Adat Dayak di Arena Bukit Rawi</h4>
                         <p>Membina kreatifitas generasi milenial setempat guna menjaga orisinalitas kesenian adat daerah...</p>
-                        <a href="#" class="btn-card-read">Baca Selengkapnya <i class="fa-solid fa-chevron-right"></i></a>
+                        <div class="news-footer-line">
+                            <span class="news-date">Mei 2026</span>
+                            <a href="#" class="btn-card-read">Baca <i class="fa-solid fa-chevron-right"></i></a>
+                        </div>
                     </div>
                 </div>
 
@@ -2084,7 +2053,7 @@
             <div class="cultural-grid">
                 
                 <div class="cultural-text">
-                    <h5>POTENSI UMGGULAN KECAMATAN</h5>
+                    <h5>POTENSI UNGGULAN KECAMATAN</h5>
                     <h2>Kerajinan Anyaman Rotan Leluhur Dayak</h2>
                     <p>Rotan hutan berkualitas premium diolah secara manual oleh kelompok pengrajin terampil lokal di Kahayan Tengah untuk menghasilkan produk interior berkelas internasional.</p>
                     <ul class="cultural-features-list">
@@ -2117,7 +2086,7 @@
     </section>
 
     <!-- ==========================================================================
-       PREMIUM FOOTER
+       6. FOOTER
        ========================================================================== -->
     <footer>
         <div class="container">
@@ -2350,20 +2319,7 @@
             const navMenu = document.getElementById("navMenu");
 
             mobileMenuBtn.addEventListener("click", () => {
-                if (navMenu.style.display === "flex") {
-                    navMenu.style.display = "none";
-                } else {
-                    navMenu.style.display = "flex";
-                    navMenu.style.flexDirection = "column";
-                    navMenu.style.position = "absolute";
-                    navMenu.style.top = "100%";
-                    navMenu.style.left = "0";
-                    navMenu.style.width = "100%";
-                    navMenu.style.background = "#ffffff";
-                    navMenu.style.padding = "20px";
-                    navMenu.style.boxShadow = "0 10px 15px rgba(0,0,0,0.05)";
-                    navMenu.style.borderTop = "1px solid #f1f5f9";
-                }
+                navMenu.classList.toggle("show");
             });
 
             // 7. Dynamic Simulator of Water Level POS Hydrology Pos
