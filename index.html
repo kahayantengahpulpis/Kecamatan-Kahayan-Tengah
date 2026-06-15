@@ -300,7 +300,7 @@
         }
 
         /* ==========================================================================
-           3. HERO HERO SLIDER PARALLAX & QUICK ACTION WIDGETS
+           3. HERO SLIDER PARALLAX & QUICK ACTION WIDGETS
            ========================================================================== */
         .hero-premium-section {
             position: relative;
@@ -845,7 +845,7 @@
             display: grid;
             grid-template-columns: 380px 1fr;
             gap: 30px;
-            height: 500px;
+            height: 550px;
         }
 
         /* Village Selector Side List */
@@ -856,6 +856,22 @@
             padding: 20px;
             overflow-y: auto;
             box-shadow: 0 10px 30px rgba(13, 59, 48, 0.03);
+            max-height: 100%;
+        }
+
+        /* Style scrollbar of village sidebar */
+        .village-side-menu::-webkit-scrollbar {
+            width: 6px;
+        }
+        .village-side-menu::-webkit-scrollbar-track {
+            background: rgba(13, 59, 48, 0.02);
+        }
+        .village-side-menu::-webkit-scrollbar-thumb {
+            background: rgba(13, 59, 48, 0.2);
+            border-radius: 3px;
+        }
+        .village-side-menu::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-gold);
         }
 
         .village-side-menu h3 {
@@ -863,6 +879,10 @@
             margin-bottom: 15px;
             border-bottom: 2px solid var(--bg-sand-dark);
             padding-bottom: 10px;
+            position: sticky;
+            top: 0;
+            background: #ffffff;
+            z-index: 2;
         }
 
         .village-list {
@@ -925,52 +945,6 @@
             justify-content: center;
             overflow: hidden;
             border-right: 1px solid var(--card-border);
-        }
-
-        /* Mock Vector Map Concept Visual */
-        .mock-map-elements {
-            width: 90%;
-            height: 90%;
-            position: relative;
-            opacity: 0.95;
-        }
-
-        .map-river-line {
-            stroke: #4fa1c7;
-            stroke-width: 14px;
-            fill: none;
-            stroke-linecap: round;
-        }
-
-        .map-region-point {
-            position: absolute;
-            background: var(--accent-gold);
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            border: 3px solid #ffffff;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: var(--transition-smooth);
-        }
-
-        .map-region-point:hover, .map-region-point.active {
-            transform: scale(1.4);
-            background: var(--primary-forest);
-            box-shadow: 0 0 15px rgba(13, 59, 48, 0.6);
-        }
-
-        .map-region-label {
-            position: absolute;
-            background: rgba(13, 59, 48, 0.85);
-            color: #ffffff;
-            font-size: 9px;
-            font-weight: 700;
-            padding: 2px 6px;
-            border-radius: 4px;
-            transform: translate(-50%, -25px);
-            white-space: nowrap;
-            pointer-events: none;
         }
 
         /* Dynamic Info Block on Selected Village */
@@ -1664,7 +1638,12 @@
             }
             .gis-visual-screen {
                 grid-template-columns: 1fr;
-                height: 500px;
+                height: auto;
+            }
+            .gis-map-frame {
+                height: 350px;
+                border-right: none;
+                border-bottom: 1px solid var(--card-border);
             }
             .transparency-grid {
                 grid-template-columns: 1fr;
@@ -1888,9 +1867,9 @@
                     <div class="monitor-header">
                         <i class="fa-solid fa-cloud-sun-rain"></i>
                         <div>
-                            <div class="flex items-center gap-2">
+                            <div style="display: flex; align-items: center; gap: 8px;">
                                 <h3>Kondisi Cuaca Hari Ini</h3>
-                                <span id="weatherLivePulse" class="hidden flex h-2 w-2 relative">
+                                <span id="weatherLivePulse" class="hidden h-2 w-2 relative" style="display: inline-flex;">
                                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                                     <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                                 </span>
@@ -1900,8 +1879,8 @@
                     </div>
                     <div class="weather-panel">
                         <div class="weather-main" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                            <div id="liveWeatherIconBox" class="mb-2">
-                                <i class="fa-solid fa-cloud-showers-water text-4xl text-blue-400"></i>
+                            <div id="liveWeatherIconBox" style="margin-bottom: 8px;">
+                                <i class="fa-solid fa-cloud-showers-water" style="font-size: 36px; color: #60a5fa;"></i>
                             </div>
                             <div class="weather-temp" id="liveWeatherTemp">--°C</div>
                             <span id="liveWeatherDesc" style="font-size: 13px; font-weight: 700; text-transform: uppercase;">Memuat...</span>
@@ -1917,7 +1896,7 @@
                             </div>
                             <div class="stat-line">
                                 <span>Pembaruan</span>
-                                <span class="val text-xs text-emerald-700" id="liveWeatherTime">Memproses...</span>
+                                <span class="val" id="liveWeatherTime" style="font-size: 11px; color: #047857;">Memproses...</span>
                             </div>
                             <!-- Integrated AccuWeather Realtime Link -->
                             <a href="https://www.accuweather.com/id/id/bukit-rawi/3474430/current-weather/3474430" 
@@ -1942,14 +1921,14 @@
             <div class="section-headline">
                 <h5>EKSPLORASI GEOGRAFIS</h5>
                 <h2>Peta GIS Terpadu 14 Desa Kahayan Tengah</h2>
-                <p>Klik nama desa di daftar sebelah kiri untuk memproyeksikan data spasial, nama kepemimpinan pemerintahan, serta statistik potensi andalan desa masing-masing.</p>
+                <p>Klik nama desa di daftar sebelah kiri untuk memproyeksikan citra satelit rupa bumi secara interaktif, nama kades kepemimpinan, serta statistik potensi andalan desa masing-masing.</p>
             </div>
 
             <div class="gis-dashboard-layout">
                 
-                <!-- Village Selector Sidebar -->
+                <!-- Village Selector Sidebar (14 Villages) -->
                 <div class="village-side-menu">
-                    <h3>Daftar Desa</h3>
+                    <h3>Daftar 14 Desa</h3>
                     <ul class="village-list">
                         <li><button class="village-btn active" data-village="bukitrawi">Desa Bukit Rawi <i class="fa-solid fa-chevron-right"></i></button></li>
                         <li><button class="village-btn" data-village="sigi">Desa Sigi <i class="fa-solid fa-chevron-right"></i></button></li>
@@ -1957,24 +1936,29 @@
                         <li><button class="village-btn" data-village="pendapilang">Desa Penda Pilang <i class="fa-solid fa-chevron-right"></i></button></li>
                         <li><button class="village-btn" data-village="petukliti">Desa Petuk Liti <i class="fa-solid fa-chevron-right"></i></button></li>
                         <li><button class="village-btn" data-village="bukitliti">Desa Bukit Liti <i class="fa-solid fa-chevron-right"></i></button></li>
+                        <li><button class="village-btn" data-village="tanjungsangalang">Desa Tanjung Sangalang <i class="fa-solid fa-chevron-right"></i></button></li>
+                        <li><button class="village-btn" data-village="pahawan">Desa Pahawan <i class="fa-solid fa-chevron-right"></i></button></li>
+                        <li><button class="village-btn" data-village="bahupalawa">Desa Bahu Palawa <i class="fa-solid fa-chevron-right"></i></button></li>
+                        <li><button class="village-btn" data-village="balaju">Desa Balaju <i class="fa-solid fa-chevron-right"></i></button></li>
+                        <li><button class="village-btn" data-village="berengrambang">Desa Bereng Rambang <i class="fa-solid fa-chevron-right"></i></button></li>
+                        <li><button class="village-btn" data-village="parahangan">Desa Parahangan <i class="fa-solid fa-chevron-right"></i></button></li>
+                        <li><button class="village-btn" data-village="pasiangan">Desa Pasiangan <i class="fa-solid fa-chevron-right"></i></button></li>
+                        <li><button class="village-btn" data-village="tahawa">Desa Tahawa <i class="fa-solid fa-chevron-right"></i></button></li>
                     </ul>
                 </div>
 
                 <!-- Screen Dashboard -->
                 <div class="gis-visual-screen">
-                    <div class="gis-map-frame">
-                        <div class="mock-map-elements">
-                            <!-- River Path Watermark -->
-                            <svg style="width:100%; height:100%;">
-                                <path class="map-river-line" d="M 0,20 Q 150,80 180,240 T 320,400 T 400,480" />
-                            </svg>
-                            <!-- Pins Mapping corresponding to DB -->
-                            <div class="map-region-point active" style="top: 20%; left: 30%;" data-link="bukitrawi"><span class="map-region-label">Bukit Rawi</span></div>
-                            <div class="map-region-point" style="top: 45%; left: 40%;" data-link="sigi"><span class="map-region-label">Sigi</span></div>
-                            <div class="map-region-point" style="top: 60%; left: 45%;" data-link="tuwung"><span class="map-region-label">Tuwung</span></div>
-                            <div class="map-region-point" style="top: 70%; left: 70%;" data-link="pendapilang"><span class="map-region-label">Penda Pilang</span></div>
-                            <div class="map-region-point" style="top: 30%; left: 80%;" data-link="petukliti"><span class="map-region-label">Petuk Liti</span></div>
-                            <div class="map-region-point" style="top: 15%; left: 60%;" data-link="bukitliti"><span class="map-region-label">Bukit Liti</span></div>
+                    <div class="gis-map-frame" style="padding: 0; position: relative;">
+                        <!-- Embed Google Maps Satellite View with Marker Coordinates -->
+                        <iframe id="liveGoogleMap"
+                                src="https://maps.google.com/maps?q=-2.0827,113.9490&t=k&z=14&ie=UTF8&iwloc=&output=embed" 
+                                style="width:100%; height:100%; border:none;" 
+                                allowfullscreen="" 
+                                loading="lazy"></iframe>
+                        <!-- Premium watermarking label on map -->
+                        <div style="position: absolute; bottom: 10px; left: 10px; background: rgba(13, 59, 48, 0.9); color: #ffffff; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; border: 1px solid var(--accent-gold); pointer-events: none;">
+                            <i class="fa-solid fa-satellite"></i> CITRA SATELIT LIVE
                         </div>
                     </div>
                     
@@ -2001,7 +1985,9 @@
                                 <span class="value" id="vPot">Situs Budaya Sandung &amp; Kerajinan</span>
                             </li>
                         </ul>
-                        <a href="#" class="v-map-route-btn"><i class="fa-solid fa-map-location-dot"></i> Rute Lokasi Kantor Desa</a>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=-2.0827,113.9490" id="vRouteBtn" target="_blank" class="v-map-route-btn">
+                            <i class="fa-solid fa-map-location-dot"></i> Rute Lokasi Kantor Desa
+                        </a>
                     </div>
                 </div>
 
@@ -2054,7 +2040,7 @@
                     <p>Secara berkala kami mempublikasikan penyerapan dana alokasi daerah maupun dana bantuan nasional sebagai komitmen bebas korupsi (Good Governance) di wilayah Kecamatan Kahayan Tengah.</p>
                     <div class="metrics-block">
                         <div class="metric-item">
-                            <div class="metric-number">10.605</div>
+                            <div class="metric-number">14.185</div>
                             <div class="metric-label">Total Penduduk</div>
                         </div>
                         <div class="metric-item">
@@ -2210,7 +2196,7 @@
                     <div class="contact-box-footer">
                         <div class="footer-contact-item">
                             <i class="fa-solid fa-location-dot"></i>
-                            <p>Jl. Trans Kalimantan No.15, Bukit Rawi, Kahayan Tengah, Pulang Pisau, Kalimantan Tengah, 74481</p>
+                            <p>Jl. Trans Kalimantan No.15, Bukit Rawi, Kahayan Tengah, Pulang Pisau, Kalimantan Tengah, 74862</p>
                         </div>
                         <div class="footer-contact-item">
                             <i class="fa-solid fa-clock"></i>
@@ -2246,7 +2232,7 @@
        INTERACTIVE JAVASCRIPT SYSTEM
        ========================================================================== -->
     <script>
-        // Database mock for GIS 14 villages
+        // Comprehensive Database for GIS all 14 villages in Kahayan Tengah
         const villageDatabase = {
             bukitrawi: {
                 name: "Desa Bukit Rawi",
@@ -2254,7 +2240,9 @@
                 kades: "Zariano, S.E.",
                 area: "72,50 km²",
                 population: "2.410 Jiwa",
-                potential: "Situs Budaya Sandung & Kerajinan"
+                potential: "Situs Budaya Sandung & Kerajinan",
+                lat: -2.0827,
+                lng: 113.9490
             },
             sigi: {
                 name: "Desa Sigi",
@@ -2262,7 +2250,9 @@
                 kades: "Novianto, S.Pd.",
                 area: "54,20 km²",
                 population: "1.240 Jiwa",
-                potential: "Pertanian & Perikanan Sungai"
+                potential: "Pertanian & Perikanan Sungai",
+                lat: -2.0519,
+                lng: 113.9723
             },
             tuwung: {
                 name: "Desa Tuwung",
@@ -2270,7 +2260,9 @@
                 kades: "Pramono, S.Sos.",
                 area: "48,15 km²",
                 population: "980 Jiwa",
-                potential: "Perkebunan Karet & Jasa"
+                potential: "Perkebunan Karet & Jasa",
+                lat: -1.9961,
+                lng: 114.0456
             },
             pendapilang: {
                 name: "Desa Penda Pilang",
@@ -2278,7 +2270,9 @@
                 kades: "Samberianto",
                 area: "85,60 km²",
                 population: "740 Jiwa",
-                potential: "Pemanfaatan Hasil Hutan Bukan Kayu"
+                potential: "Pemanfaatan Hasil Hutan Bukan Kayu",
+                lat: -1.9619,
+                lng: 114.0722
             },
             petukliti: {
                 name: "Desa Petuk Liti",
@@ -2286,7 +2280,9 @@
                 kades: "Supardian",
                 area: "61,10 km²",
                 population: "1.150 Jiwa",
-                potential: "Hortikultura & Peternakan Sapi"
+                potential: "Hortikultura & Peternakan Sapi",
+                lat: -2.0468,
+                lng: 113.8821
             },
             bukitliti: {
                 name: "Desa Bukit Liti",
@@ -2294,7 +2290,89 @@
                 kades: "Yansonsen",
                 area: "94,30 km²",
                 population: "1.325 Jiwa",
-                potential: "Wisata Hutan Pendidikan & Jamur Hutan"
+                potential: "Wisata Hutan Pendidikan & Jamur Hutan",
+                lat: -2.0620,
+                lng: 113.8447
+            },
+            tanjungsangalang: {
+                name: "Desa Tanjung Sangalang",
+                subtitle: "Gerbang Pariwisata Alam & Perikanan",
+                kades: "Ardiansyah",
+                area: "45,80 km²",
+                population: "890 Jiwa",
+                potential: "Budidaya Ikan Keramba & Ekowisata Sungai",
+                lat: -2.0210,
+                lng: 113.9922
+            },
+            pahawan: {
+                name: "Desa Pahawan",
+                subtitle: "Sentra Budidaya Karet & Agroforestri",
+                kades: "Raimond",
+                area: "110,40 km²",
+                population: "650 Jiwa",
+                potential: "Penyadapan Karet Alam & Agroforestri",
+                lat: -1.8790,
+                lng: 114.1354
+            },
+            bahupalawa: {
+                name: "Desa Bahu Palawa",
+                subtitle: "Wilayah Konservasi Hutan Gambut & Tradisi",
+                kades: "Hendra, S.H.",
+                area: "79,15 km²",
+                population: "1.020 Jiwa",
+                potential: "Hutan Adat Gambut & Kelulut Madu",
+                lat: -2.0712,
+                lng: 113.8115
+            },
+            balaju: {
+                name: "Desa Balaju",
+                subtitle: "Kawasan Pertanian Padi & Hortikultura",
+                kades: "Mulyadi",
+                area: "38,50 km²",
+                population: "590 Jiwa",
+                potential: "Sawah Pasang Surut & Sayur-Mayur",
+                lat: -1.8490,
+                lng: 114.1720
+            },
+            berengrambang: {
+                name: "Desa Bereng Rambang",
+                subtitle: "Kawasan Perkebunan Sawit & Karet Rakyat",
+                kades: "Darmanto",
+                area: "102,10 km²",
+                population: "810 Jiwa",
+                potential: "Kelapa Sawit Mandiri & Karet",
+                lat: -1.9212,
+                lng: 114.1080
+            },
+            parahangan: {
+                name: "Desa Parahangan",
+                subtitle: "Sentra Ketahanan Pangan & Peternakan",
+                kades: "Yansen",
+                area: "67,40 km²",
+                population: "1.180 Jiwa",
+                potential: "Peternakan Kambing & Tanaman Pangan",
+                lat: -1.9056,
+                lng: 114.1205
+            },
+            pasiangan: {
+                name: "Desa Pasiangan",
+                subtitle: "Kawasan Kelestarian Ekologi Sungai",
+                kades: "Guntur",
+                area: "51,20 km²",
+                population: "480 Jiwa",
+                potential: "Nelayan Tradisional & Rotan Hutan",
+                lat: -1.9380,
+                lng: 114.0920
+            },
+            tahawa: {
+                name: "Desa Tahawa",
+                subtitle: "Kawasan Konservasi Rimba & Adat Dayak",
+                kades: "Niko",
+                area: "124,50 km²",
+                population: "1.050 Jiwa",
+                potential: "Hutan Desa Lindung, Jamur & Rotan",
+                lat: -2.1220,
+                lng: 113.7850
             }
         };
 
@@ -2329,9 +2407,8 @@
             window.addEventListener("scroll", () => { handleScrollAnimation(); });
             handleScrollAnimation(); // Trigger on load once
 
-            // 3. GIS Interactive Villages Switcher
+            // 3. GIS Interactive Villages Switcher (Updated for all 14 villages with actual Google Map Embed)
             const villageButtons = document.querySelectorAll(".village-btn");
-            const mapPins = document.querySelectorAll(".map-region-point");
             
             const updateVillageDashboard = (villageId) => {
                 const data = villageDatabase[villageId];
@@ -2345,6 +2422,18 @@
                 document.getElementById("vPop").innerText = data.population;
                 document.getElementById("vPot").innerText = data.potential;
 
+                // Update Map Google Embed dynamically with custom coordinates (hybrid Satellite layer)
+                const mapIframe = document.getElementById("liveGoogleMap");
+                if (mapIframe) {
+                    mapIframe.src = `https://maps.google.com/maps?q=${data.lat},${data.lng}&t=k&z=14&ie=UTF8&iwloc=&output=embed`;
+                }
+
+                // Update directions routing href
+                const routeBtn = document.getElementById("vRouteBtn");
+                if (routeBtn) {
+                    routeBtn.href = `https://www.google.com/maps/dir/?api=1&destination=${data.lat},${data.lng}`;
+                }
+
                 // Toggle Active buttons
                 villageButtons.forEach(btn => {
                     if (btn.getAttribute("data-village") === villageId) {
@@ -2353,29 +2442,12 @@
                         btn.classList.remove("active");
                     }
                 });
-
-                // Toggle Map point active markers
-                mapPins.forEach(pin => {
-                    if (pin.getAttribute("data-link") === villageId) {
-                        pin.classList.add("active");
-                    } else {
-                        pin.classList.remove("active");
-                    }
-                });
             };
 
             // Hook Event Listeners for side buttons
             villageButtons.forEach(btn => {
                 btn.addEventListener("click", () => {
                     const id = btn.getAttribute("data-village");
-                    updateVillageDashboard(id);
-                });
-            });
-
-            // Hook Event Listeners for Map points directly
-            mapPins.forEach(pin => {
-                pin.addEventListener("click", () => {
-                    const id = pin.getAttribute("data-link");
                     updateVillageDashboard(id);
                 });
             });
